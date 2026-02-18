@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>مقارنة وتعبئة - املأ الفراغ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .comparison-box {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        html.dark body .comparison-box {
+             background-color: rgba(0, 0, 0, 0.2);
+             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body> 
+<div class="main-width-container pt-10">
+   <div id="navbar-placeholder"></div>
+        
+    <header class="page-title-card">
+        <h1>مقارنة وتعبئة</h1>
+    </header>
+
+    <div id="status-bar-placeholder" class="mb-4 md:mb-6"></div>
+
+    <div id="quiz-container" class="mb-1 md:mb-2"></div>
+    
+    <div id="next-button-container" class="mt-4 md:mt-6 text-center">
+        <button id="next-question-btn" class="btn-answer w-full" disabled>
+            أجب على السؤال للانتقال إلى التالي
+        </button>
+    </div>
+
+    <footer class="text-center mt-6 md:mt-8">
+        <p id="footer-message" class="text-xs md:text-sm opacity-90" style="color: var(--text)"></p>
+    </footer>
+        
+</div>
+
+    <script src="../data/data_qz-comparison.js"></script>
+    
+    <script src="../js/quiz-status-bar.js"></script>
+    
+    <script src="../js/script_qz-comparison.js"></script>
+    
+    <script src="../js/nav-loader.js"></script>
+    <script>
+        loadNavbar({ 
+            pageType: 'subpage',
+            showTools: false
+        });
+    </script>
+</body>
+</html>

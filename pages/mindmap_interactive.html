@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخريطة التفاعلية</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            overflow: hidden; 
+            font-family: 'Cairo', sans-serif; 
+            background-color: rgb(170, 187, 165); 
+            display: flex; flex-direction: column; 
+        }
+
+        /* الهيدر */
+        .content-container {
+            background-color: rgb(170, 187, 165);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 10; flex-shrink: 0;
+            padding: 10px;
+        }
+        html.dark body .content-container { background: #1f2937; border-color: #4b5563; }
+
+        .header-title-style { font-size: 1.25rem; font-weight: 700; color: #004d40; margin: 0; text-align: right;}
+        .header-subtitle-style { font-size: 0.9rem; color: #333; margin: 0; text-align: right;}
+        html.dark body .header-title-style { color: #a7f3d0; }
+        html.dark body .header-subtitle-style { color: #d1d5db; }
+
+        /* حاوية الخريطة */
+        #markmap-container {
+            flex-grow: 1; width: 100%; height: 100%; position: relative;
+            background-color: rgb(170, 187, 165);
+        }
+        html.dark body #markmap-container { background-color: #111827; }
+
+        svg#markmap { width: 100%; height: 100%; display: block; }
+        
+        /* جعل النصوص والمؤشر قابلة للنقر */
+        svg#markmap foreignObject { cursor: pointer; pointer-events: auto; }
+        svg#markmap text { cursor: pointer; pointer-events: auto; }
+        
+        /* ألوان الوضع المظلم للخريطة */
+        html.dark body .markmap-node-text { fill: #e5e7eb !important; }
+        html.dark body path { stroke: #6b7280 !important; }
+        html.dark body circle { fill: #6b7280 !important; }
+    </style>
+</head>
+<body class="min-h-screen font-sans" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }" @theme-toggle.window="darkMode = !darkMode">
+
+    <div id="navbar-placeholder"></div>
+
+    <div id="markmap-container">
+        <svg id="markmap"></svg>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+    
+    <script src="../data/data_mindmap_interactive.js"></script>
+    <script src="../js/script_mindmap_interactive.js"></script>
+
+	<script src="../js/nav-loader.js"></script>
+    <script src="../js/page-init.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof loadNavbar === 'function') {
+                loadNavbar({ pageType: 'sub', showTools: true });
+            }
+        });
+    </script>
+</body>
+</html>

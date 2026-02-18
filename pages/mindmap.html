@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<title>الخريطة الذهنية</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="min-h-screen" 
+      x-data="{ 'fontSize': 18, 'darkMode': false }"
+      :class="{ 'dark': darkMode }"
+      @font-change.window="fontSize = Math.max(10, fontSize + $event.detail)"
+      @font-reset.window="fontSize = 18"
+      @theme-toggle.window="darkMode = !darkMode"> 
+
+	<div class="main-width-container pt-10" :style="{ 'fontSize': fontSize + 'px' }">
+  	<div id="navbar-placeholder"></div>
+
+    <div class="content-container mb-4">
+        <div class="accordion-button">
+            <div class="accordion-title-group" style="flex-direction: column; align-items: flex-end;"> 
+                <h1 class="header-title-style">خريطة ذهنية</h1>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-main p-0 md:p-0 mb-1 md:mb-2">
+        <div class="mindmap-wrapper">
+            <div class="mindmap-v-tree" id="mindmap-tree-container">
+                </div> 
+        </div> 
+    </div> 
+    
+    <footer class="text-center mt-6 md:mt-8" style="width: 100%;">
+        <p id="footer-message" class="text-xs md:text-sm opacity-90" style="color: var(--text)"></p>
+    </footer>
+
+</div> 
+
+    <script src="../data/data_mindmap.js" charset="UTF-8"></script>
+    <script src="../js/script_mindmap.js"></script>
+
+	<script src="../js/nav-loader.js"></script>
+    <script src="../js/page-init.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof loadNavbar === 'function') {
+                loadNavbar({ pageType: 'sub', showTools: true });
+            }
+        });
+    </script>
+</body>
+
+</html>
+

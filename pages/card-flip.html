@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>بطاقات المراجعة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body> 
+<div class="main-width-container pt-10">
+    <div id="navbar-placeholder"></div>
+    
+    <header class="page-title-card flex flex-col md:flex-row justify-between items-center gap-4 p-4">
+        <div>
+            <h1 class="text-xl md:text-2xl font-bold m-0">بطاقات المراجعة</h1>
+            <p class="text-sm opacity-80 mt-1">حاول التخمين ثم اضغط لتظهر الإجابة</p>
+        </div>
+
+        <div class="flex gap-2 flex-wrap justify-center">
+            <a href="?mode=1" id="btn-mode-1" class="px-3 py-1.5 rounded-lg text-sm font-bold border border-gray-300 transition duration-200 text-center">
+                بطاقات 1
+            </a>
+            <a href="?mode=2" id="btn-mode-2" class="px-3 py-1.5 rounded-lg text-sm font-bold border border-gray-300 transition duration-200 text-center">
+                بطاقات 2
+            </a>
+            <a href="?mode=3" id="btn-mode-3" class="px-3 py-1.5 rounded-lg text-sm font-bold border border-gray-300 transition duration-200 text-center">
+                أسئلة الكتاب
+            </a>
+        </div>
+    </header>
+
+    <div id="status-bar-placeholder" class="mb-4 md:mb-6"></div>
+
+    <div id="card-and-buttons-container" class="p-6 md:p-8 rounded-2xl comparison-card border-t-8 relative">
+        
+        <div class="card-container relative min-h-[250px] mb-8">
+            <div id="flashcard" class="card" onclick="flipCard()">
+                <div id="front-face" class="card-face flex flex-col justify-between border border-gray-300 rounded-3xl bg-gradient-to-br from-green-100 to-green-200 shadow-xl">
+                    <div id="front-header" class="card-header text-white bg-gray-400 shadow-md"></div>
+                    <div id="front-content" class="card-content text-gray-800"></div>
+                </div>
+
+                <div id="back-face" class="card-face flex flex-col justify-between border border-gray-300 rounded-3xl shadow-xl">
+                    <div id="back-header" class="card-header text-white bg-blue-700 shadow-md"> الحكم</div>
+                    <div id="back-content" class="card-content text-gray-800"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="navigation-buttons" class="mt-8 flex justify-center space-x-4">
+            <button id="prev-btn" class="px-6 py-3 bg-gray-400 text-white font-bold rounded-xl transition duration-200 disabled:opacity-50 hover:bg-gray-500" disabled>
+                &larr; البطاقة السابقة
+            </button>
+            <button id="next-btn" class="px-6 py-3 bg-teal-500 text-white font-bold rounded-xl transition duration-200 disabled:opacity-50 hover:bg-teal-600">
+                البطاقة التالية &rarr;
+            </button>
+        </div>
+    </div>
+
+    <div id="end-screen" class="container-main text-center p-8 hidden">
+        <h2 class="text-2xl font-bold mb-4">انتهت المراجعة!</h2>
+        <p class="text-xl mb-6" id="final-message">لقد أتممت جميع بطاقات المراجعة.</p>
+        <button onclick="restartQuiz()" class="quiz-button bg-green-500 text-white py-2 px-6 rounded-lg font-semibold">إعادة المراجعة</button>
+    </div>
+</div>
+
+<script>
+    // 1. تحديد النمط من الرابط (الافتراضي هو 1)
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get('mode') || '1';
+
+    // 2. تعريف الأزرار
+    const btn1 = document.getElementById('btn-mode-1');
+    const btn2 = document.getElementById('btn-mode-2');
+    const btn3 = document.getElementById('btn-mode-3');
+
+    // قائمة بجميع الأزرار ليسهل التكرار عليها
+    const allButtons = [btn1, btn2, btn3];
+
+    // دالة لتحديث ستايل الأزرار بناءً على الزر النشط
+    const updateButtonStyles = (activeBtn) => {
+        allButtons.forEach(btn => {
+            if (btn === activeBtn) {
+                // الزر النشط
+                btn.classList.add('bg-teal-600', 'text-white', 'border-teal-600');
+                btn.classList.remove('text-gray-600', 'bg-transparent');
+            } else {
+                // الأزرار غير النشطة
+                btn.classList.add('text-gray-600', 'bg-transparent', 'hover:bg-gray-100');
+                btn.classList.remove('bg-teal-600', 'text-white', 'border-teal-600');
+            }
+        });
+    };
+
+    // منطق الاختيار وتحميل الملف المناسب
+    if (mode === '3') {
+        updateButtonStyles(btn3);
+        // تحميل ملف أسئلة الكتاب
+        document.write('<script src="../data/data_card-flip2.js"><\/script>');
+    } else if (mode === '2') {
+        updateButtonStyles(btn2);
+        // تحميل ملف البيانات الثاني
+        document.write('<script src="../data/data_card-flip1.js"><\/script>');
+    } else {
+        updateButtonStyles(btn1);
+        // تحميل ملف البيانات الأول (الافتراضي)
+        document.write('<script src="../data/data_card-flip.js"><\/script>');
+    }
+</script>
+
+<script src="../js/quiz-status-bar.js"></script>
+<script src="../js/script_card-flip.js"></script>
+<script src="../js/nav-loader.js"></script>
+<script>
+    loadNavbar({ 
+        pageType: 'subpage',
+        showTools: false 
+    });
+</script>
+</body>
+</html>

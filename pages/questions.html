@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Questions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="min-h-screen" x-data="pageSettings" :class="{ 'dark': darkMode }"> 
+
+<div class="main-width-container pt-10"> 
+<div id="navbar-placeholder"></div>
+      
+    <div class="top-row">
+        <article class="content" 
+                 :style="{ 'fontSize': fontSize + 'px' }">
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١---المهدوية-في-التاريخ-">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١ - المهدوية في التاريخ الإسلامي والإنساني</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-كيف-صبغت-مسألة-الإمام-المهدي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. كيف صبغت مسألة الإمام المهدي عليه السلام بالصبغة المذهبية؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> صبغت بطابع مذهبي بسبب عوامل سياسية (<strong>استغلال</strong><strong> </strong><strong>العباسيين</strong><strong> </strong><strong>والحسنيين</strong><strong> </strong><strong>للقضية</strong>) وعوامل طائفية (<strong>الصراع</strong><strong> </strong><strong>المذهبي</strong><strong> </strong><strong>بين</strong><strong> </strong><strong>الشيعة</strong><strong> </strong><strong>والسنة</strong><strong> </strong><strong>القائم</strong><strong> </strong><strong>على</strong><strong> </strong><strong>أسس</strong><strong> </strong><strong>غير</strong><strong> </strong><strong>موضوعية</strong><strong> </strong><strong>وانفعالات</strong><strong> </strong><strong>عاطفية</strong>)، مما حولها من عقيدة إسلامية عامة إلى قضية خاصة بمذهب معين.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-هو-مصدر-القائلين-بقضية-ال" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما هو مصدر القائلين بقضية الإمام المهدي عليه السلام من أصحاب المذاهب الإسلامية؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> المصدر هو الأحاديث الصادرة عن النبي صلى الله عليه وآله وسلم التي ثبتت صحة صدورها، إما لأنها متواترة أو لأنها أخبار آحاد توفرت على شرائط الصحة.</p>
+							</div>
+						</div>
+						<div id="h3-٣-هل-الأحاديث-الواردة-عن-النبي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. هل الأحاديث الواردة عن النبي صلى الله عليه وآله وسلم بشأنه متواترة؟ وما هي الأقوال في ذلك؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> نعم، قال بتواترها غير واحد من العلماء، والأقوال في ذلك ثلاثة: القول بتواترها عند المسلمين، القول بتواترها عند أهل السنة، والقول بتواترها عند الشيعة. والقول بالتواتر لدى الطائفتين يعني التواتر عند المسلمين جميعاً.</p>
+							</div>
+						</div>
+						<div id="h3-٤-ما-هو-المقصود-بالخليفة-العاد" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. ما هو المقصود بالخليفة العادل وعلى من تحمل الأحاديث التي لم تصرح باسم الإمام المهدي عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> المقصود بالخليفة العادل هو المهدي عليه السلام، وتحمل الأحاديث التي لم تصرح باسمه (<strong>المطلقة</strong>) على الأحاديث التي صرحت باسمه (<strong>المقيدة</strong>) لتشابههما في الموضوع.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ما-هي-العوامل-التي-ساهمت-في-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ما هي العوامل التي ساهمت في جعل قضية الإمام المهدي عليه السلام قضية مذهبية؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> ساهم عاملان رئيسيان: </p>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"><strong>العامل</strong><strong> </strong><strong>السياسي</strong><strong> </strong>(<strong>استغلال</strong><strong> </strong><strong>العباسيين</strong><strong> </strong><strong>والحسنيين</strong><strong> </strong><strong>للقضية</strong><strong> </strong><strong>للوصول</strong><strong> </strong><strong>للحكم</strong>) </p>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"><strong>العامل</strong><strong> </strong><strong>الطائفي</strong> (<strong>الصراع</strong><strong> </strong><strong>المذهبي</strong><strong> </strong><strong>القائم</strong><strong> </strong><strong>على</strong><strong> </strong><strong>الرواسب</strong><strong> </strong><strong>العاطفية</strong><strong> </strong><strong>وقلة</strong><strong> </strong><strong>الوعي</strong><strong> </strong><strong>والموضوعية</strong>).</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٢---الإمام-المهدي-عليه-ا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٢ - الإمام المهدي عليه السلام في ظل أبيه (١)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-لماذا-أشخص-الإمام-الهادي-علي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. لماذا أشخص الإمام الهادي عليه السلام من المدينة إلى سامراء؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> السلطة ممثلة بالمتوكل العباسي أشخصت الإمام الهادي عليه السلام إلى سامراء لمخاوفها من دوره وتأثيره في القواعد الشعبية والأمة الإسلامية، ولبغض المتوكل للإمام علي عليه السلام وأبنائه وشيعته، ولجعله دوماً تحت مراقبة عيون السلطة وتطويقه وإبعاده عن قواعده.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-كانت-فائدة-وجود-الإمام-عل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما كانت فائدة وجود الإمام عليه السلام قريباً من بلاط الخليفة للخليفة وأعوانه؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> قربه من السلطة يجعله دوماً تحت مراقبة عيونها، ويسهل عليها التعرف على تحركه واتصالاته والداخلين عليه من مواليه ومؤيديه، مما ييسر متابعة ذلك واتخاذ الإجراءات الكفيلة بالحد من تأثيره ومتابعة شيعته.</p>
+							</div>
+						</div>
+						<div id="h3-٣-ما-كان-موقف-السلطة-من-القواع" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. ما كان موقف السلطة من القواعد الشعبية الموالية للإمام عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> كان موقف السلطة المطاردة، وإلقاء القبض، وإيداع السجون، والقهر، والاضطهاد. وكانت تعمل جاهدة لعزلهم عن الحياة السياسية والاجتماعية والاقتصادية، فكان الفرد منهم يعاني الخوف والفقر والمرض.</p>
+							</div>
+						</div>
+						<div id="h3-٤-ما-هو-النشاط-الذي-ركز-عليه-ا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. ما هو النشاط الذي ركز عليه الإمامان عليهما السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> ركز الإمامان عليهما السلام على رعاية القواعد المؤمنة بقيادتهما الروحية والفكرية وتربيتها، والتكفل بالإصلاح والحفاظ على الشريعة، وإدارة شؤون أصحابهم ورعاية مصالحهم عبر نظام الوكلاء بسرية وحذر.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ما-هو-دور-وكلاء-الإمامين-اله" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ما هو دور وكلاء الإمامين الهادي والعسكري عليهما السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> دورهم إيصال ما يصدر عن الإمام عليه السلام إلى قواعده وما تريده القواعد منه، وجمع الحقوق الشرعية من خمس وزكاة وإيصالها للإمام، ونقل الأسئلة والاستفتاءات الدينية والدنيوية، وإيصال إجابات الإمام وتقسيماته للأموال إلى القواعد الشعبية للعمل بها.</p>
+							</div>
+						</div>
+						<div id="h3-٦-هل-كان-نشاط-الإمامين-عليهما-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. هل كان نشاط الإمامين عليهما السلام مكرساً لاستلام السلطة؟ ولماذا؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لا، لم يكن نشاطهما مكرساً للاستيلاء على السلطة، بل كان غاية ما يسعيان إليه هو رعاية مصالح أصحابهما وإدارة شؤونهم والإصلاح والحفاظ على الشريعة.</p>
+							</div>
+						</div>
+						<div id="h3-٧-ما-كان-دور-السيدة-حكيمة-عمة-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٧. ما كان دور السيدة حكيمة عمة الإمام العسكري عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> دورها كان البقاء مع السيدة نرجس ليلة ولادة الإمام المهدي عليه السلام بأمر من الإمام العسكري عليه السلام، ومراقبة حالتها، وقراءة سورة الدخان عند شعورها بالفزع وقت الفجر، وحضور الولادة وتقديم الوليد المبارك إلى أبيه عليه السلام.</p>
+							</div>
+						</div>
+						<div id="h3-٨-متى-كانت-ولادة-الإمام-المهدي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٨. متى كانت ولادة الإمام المهدي عليه السلام، ولماذا أحيطت بالكتمان من قبل الإمام عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> كانت ولادته عند الفجر في النصف من شعبان سنة ٢٥٥هـ. وأحيطت بالكتمان بسبب الظروف الحرجة وموقف السلطة العباسية المتربصة التي كانت تتوجس خيفة من ولادته وتبحث عنه لقتله؛ حيث كان المعتمد العباسي يراقب الحوامل لعلمه أنه الإمام الذي سيزيل عروش الظالمين.</p>
+							</div>
+						</div>
+						<div id="h3-٩-هل-ظهرت-بوادر-الحمل-والولادة" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٩. هل ظهرت بوادر الحمل والولادة على السيدة نرجس؟ ولماذا؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لم تظهر بوادر الحمل والولادة على السيدة نرجس. والسبب كما وضحه الإمام العسكري عليه السلام لحكيمة أن مَثَلها كمَثَل أم موسى عليهما السلام حيث أخفي حملها ولم يعلم به أحد إلى وقت الولادة لحمايتها من فرعون، وهذا نظير إخفاء موسى عليه السلام لحماية المولود من بحث السلطة العباسية.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٣---الإمام-المهدي-عليه-ا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٣ - الإمام المهدي عليه السلام في ظل أبيه (٢)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-هل-يمكن-الاستدلال-على-تحقق-ا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. هل يمكن الاستدلال على تحقق الإخبار بخفاء الولادة من روايات الإخبار عن الغيبة العامة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> نعم، يمكن الاستفادة من الروايات التي وردت عن الرسول الأعظم صلى الله عليه وآله وسلم والتي تشير إلى غيبة الإمام وحيرة الأمة وما يجري على أهل بيته كمؤشرات تعزز واقع حال خفاء ولادته.</p>
+							</div>
+						</div>
+						<div id="h3-٢-اذكر-حديثا-عن-خفاء-ولادته-عل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. اذكر حديثاً عن خفاء ولادته عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> قول الإمام علي بن الحسين عليه السلام: «<strong>القائم</strong><strong> </strong><strong>منا</strong><strong> </strong><strong>تخفى</strong><strong> </strong><strong>ولادته</strong><strong> </strong><strong>على</strong><strong> </strong><strong>الناس</strong><strong> </strong><strong>حتى</strong><strong> </strong><strong>يقولوا</strong><strong>: </strong><strong>لم</strong><strong> </strong><strong>يولد</strong><strong> </strong><strong>بعد</strong>».</p>
+							</div>
+						</div>
+						<div id="h3-٣-لماذا-لم-ينهض-الإمام-الباقر-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. لماذا لم ينهض الإمام الباقر عليه السلام بالسيف مع كثرة مواليه في عصره؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لأنه لم يكن هو &quot;صاحب الأمر&quot; المعني بالنهوض، حيث أوضح لعبد الله بن عطاء أن صاحب هذا الأمر هو من تخفى على الناس ولادته، وهو ما لم ينطبق على الإمام الباقر عليه السلام.</p>
+							</div>
+						</div>
+						<div id="h3-٤-اذكر-علة-خفاء-ولادة-الإمام-ا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. اذكر علة خفاء ولادة الإمام المهدي عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> انحصرت العلة في أمرين رئيسيين كما ورد في الروايات: الأول لئلا تكون في عنقه بيعة لطاغية زمانه عند خروجه، والثاني هو الخوف من القتل (<strong>الذبح</strong>) إذا انكشف أمره قبل الأوان.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٤---الإمام-المهدي-عليه-ا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٤ - الإمام المهدي عليه السلام في ظل أبيه (٣)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-لماذا-كان-يفصح-الإمام-العسكر" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. لماذا كان يفصح الإمام العسكري عليه السلام عن ولادة الإمام المهدي عليه السلام ووجوده لبعض شيعته ومواليه؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لكي يثبت ولادته للتأريخ وللأمة الإسلامية وللجماعة الصالحة، ويقيم الحجة والدليل على وجوده، حتى لا يضيع اسمه أو ينكر وجوده في المستقبل.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-هو-دور-الإمام-العسكري-علي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما هو دور الإمام العسكري عليه السلام تجاه ولادة الإمام المهدي عليه السلام ووجوده؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> دوره تمثل في مهمتين: الأولى التعريف بولادته وإثباتها، والثانية حمايته من السلطة العباسية التي كانت تسعى لقتله.</p>
+							</div>
+						</div>
+						<div id="h3-٣-ما-هي-طريقة-الإمام-العسكري-ع" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. ما هي طريقة الإمام العسكري عليه السلام في بيان ولادة الإمام عليه السلام لأصحابه؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كان يعرضه على خواصه الثقات (<strong>مثل</strong><strong> </strong><strong>عثمان</strong><strong> </strong><strong>بن</strong><strong> </strong><strong>سعيد</strong><strong>، </strong><strong>ومجلس</strong><strong> </strong><strong>الأربعين</strong><strong> </strong><strong>رجلا</strong><strong>ً</strong>)، ويخبرهم بأنه الإمام من بعده، ويأمرهم بالكتمان، كما أرسل العقيقة (<strong>اللحم</strong><strong> </strong><strong>والخبز</strong>) لبعضهم إعلاماً بالولادة.</p>
+							</div>
+						</div>
+						<div id="h3-٤-ما-هو-تخطيط-الإمام-العسكري-ع" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. ما هو تخطيط الإمام العسكري عليه السلام لأطروحة الغيبة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> قام بتعويد قواعده الشعبية على الاحتجاب وعدم الظهور المباشر، والاعتماد على الوكلاء والمراسلات، ليمهد لغيبة ولده الإمام المهدي عليه السلام.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ماذا-كانت-تعني-الهدايا-والذب" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ماذا كانت تعني الهدايا والذبائح التي وزعها الإمام عليه السلام بمناسبة الولادة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> كانت عبارة عن عقيقة عن المولود الجديد، وهي وسيلة غير مباشرة لإعلام خواصه بولادة الإمام المهدي عليه السلام مع الحفاظ على السرية.</p>
+							</div>
+						</div>
+						<div id="h3-٦-ما-هي-الإجراءات-التي-قام-بها" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. ما هي الإجراءات التي قام بها الإمام العسكري عليه السلام للتمويه على السلطة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> التكتم الشديد، عدم الإعلان العام، إلزام من يراه بالكتمان، واستغلال انشغال الدولة بفتنة صاحب الزنج لعدم لفت الأنظار للولادة.</p>
+							</div>
+						</div>
+						<div id="h3-٧-ماذا-يستفاد-من-حوار-الإمام-ا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٧. ماذا يستفاد من حوار الإمام المهدي عليه السلام مع أحمد بن إسحاق؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> يستفاد منه التأكيد على استمرار الحجة في الأرض، وأن غيبته ستكون طويلة كغيبة الخضر وذي القرنين، وضرورة الثبات على الإمامة والدعاء بتعجيل الفرج للنجاة من الهلكة في عصر الغيبة.</p>
+							</div>
+						</div>
+						<div id="h3-٨-هل-ساهم-انشغال-الدولة-في-الح" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٨. هل ساهم انشغال الدولة في الحروب الداخلية في إنجاح تخطيط الإمام العسكري عليه السلام؟ وضح ذلك؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> نعم، حيث تزامن مولد الإمام (<strong>٢٥٥ </strong><strong>هـ</strong>) مع ثورة صاحب الزنج التي شغلت الدولة وأثارت الفزع، مما صرف أنظار السلطة عن مراقبة بيت الإمام بدقة في تلك الفترة الحرجة، فتمت الولادة بسلام.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٥---عصر-الإمام-المهدي-عل">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٥ - عصر الإمام المهدي عليه السلام</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-متى-استشهد-الإمام-العسكري-عل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. متى استشهد الإمام العسكري عليه السلام؟ وكيف تم ذلك؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> استشهد في الثامن من ربيع الأول سنة ٢٦٠هـ، بعد أن سقي السم من قبل المعتمد العباسي.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ماذا-يعني-سرعة-وصول-خبر-اعتل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ماذا يعني سرعة وصول خبر اعتلال ومرض الإمام العسكري عليه السلام لوزير المعتمد؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> يعني أن السلطة كانت تفرض رقابة دقيقة وشديدة على الإمام، وأنها كانت تسعى لمعرفة أمر آخر غير وفاته، وهو التأكد من وجود خلف له (<strong>ولده</strong>) لأنها كانت تجهل ولادته.</p>
+							</div>
+						</div>
+						<div id="h3-٣-لماذا-أرسلت-السلطة-الأطباء-و" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. لماذا أرسلت السلطة الأطباء والوجهاء إلى بيت الإمام العسكري عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لملازمة الدار والتعرف على خبره وأحواله، ومراقبة من يدخل ويخرج، في محاولة للعثور على أي أثر لولده الإمام المهدي عليه السلام.</p>
+							</div>
+						</div>
+						<div id="h3-٤-هل-أن-وجود-عيون-السلطة-في-دا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. هل أن وجود عيون السلطة في دار الإمام عليه السلام أثناء مرضه منعه من أداء دوره؟ ولماذا؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لا، لم يمنعه. فقد استطاع كتابة الكتب وإرسالها إلى المدينة والمدائن لتوجيه شيعته للمرحلة القادمة، كما نجح في إخفاء أمر ولده عن أعينهم.</p>
+							</div>
+						</div>
+						<div id="h3-٥-من-الذي-صلى-على-الإمام-العسك" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. من الذي صلّى على الإمام العسكري عليه السلام بعد وفاته؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> رسمياً، صلّى عليه أبو عيسى بن المتوكل بأمر السلطة. ولكن واقعياً، صلّى عليه ولده الإمام المهدي عليه السلام داخل الدار قبل إخراج الجنازة، بعد أن نحى عمه جعفر.</p>
+							</div>
+						</div>
+						<div id="h3-٦-ماذا-يستفاد-من-كثرة-الناس-في" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. ماذا يستفاد من كثرة الناس في تشييع الإمام العسكري عليه السلام واضطراب سامراء في ذلك اليوم؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> يستفاد منه المكانة العالية للإمام في نفوس العامة والخاصة، وإقرار الجميع بفضله وزهده وورعه وشرف نسبه، مما أثار رعب السلطة.</p>
+							</div>
+						</div>
+						<div id="h3-٧-كم-مدة-حجزت-أم-الإمام-المهدي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٧. كم مدة حجزت أم الإمام المهدي عليه السلام وهل استفادت السلطة منها حول ولدها؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> حجزت لمدة عامين تقريباً (<strong>حتى</strong><strong> ٢٦٢</strong><strong>هـ</strong>). ولم تستفد السلطة شيئاً، حيث لم تعثر على الإمام المهدي عليه السلام وباءت جهودها بالفشل.</p>
+							</div>
+						</div>
+						<div id="h3-٨-أين-دفن-الإمام-العسكري-عليه-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٨. أين دفن الإمام العسكري عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> دفن في سامراء إلى جنب أبيه الإمام علي الهادي عليه السلام.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٦---الإمام-المهدي-عليه-ا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٦ - الإمام المهدي عليه السلام يتسلم زمام الأمر</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-متى-تسلم-الإمام-المهدي-المها" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. متى تسلّم الإمام المهدي المهام الإمامة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> تسلمها سنة ٢٦٠هـ بعد استشهاد أبيه الإمام العسكري عليه السلام، وكان عمره الشريف حينها خمس سنوات.</p>
+							</div>
+						</div>
+						<div id="h3-٢-كيف-كان-يتصل-الإمام-عليه-الس" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. كيف كان يتصل الإمام عليه السلام بقواعده الشعبية؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كان يتصل بهم عبر وكلائه ونوابه (<strong>السفراء</strong><strong> </strong><strong>الأربعة</strong>) الذين كانوا حلقة الوصل ينقلون إليه الأسئلة والحقوق وينقلون عنه التوقيعات والبيانات.</p>
+							</div>
+						</div>
+						<div id="h3-٣-لماذا-لم-تنجح-الدولة-في-توظي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. لماذا لم تنجح الدولة في توظيف فقهائها لأجل تشويه حقيقة وجود الإمام عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> بسبب توجيهات الإمام عليه السلام وبياناته التي كان لها الدور الأكبر في إفشال مخططات الدولة ونقض الشبهات التي يثيرها فقهاء السلطة.</p>
+							</div>
+						</div>
+						<div id="h3-٤-عدد-ملامح-عصر-الغيبة-الصغرى" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. عدد ملامح عصر الغيبة الصغرى؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							</div>
+						</div>
+						<div id="h3-أ--وجود-الوكلاء-الأربعة" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">أ- وجود الوكلاء الأربعة.</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							</div>
+						</div>
+						<div id="h3-ب--تولي-ستة-خلفاء-من-بني-العبا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">ب- تولي ستة خلفاء من بني العباس مع ضعف الخلافة وسيطرة الأتراك.</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							</div>
+						</div>
+						<div id="h3-ج--كثرة-قتل-الخلفاء" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">ج- كثرة قتل الخلفاء.</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							</div>
+						</div>
+						<div id="h3-د--انتقال-الخلافة-من-سامراء-إل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">د- انتقال الخلافة من سامراء إلى بغداد.</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }">هـ- كثرة الحروب والاضطرابات (<strong>صاحب</strong><strong> </strong><strong>الزنج</strong><strong>، </strong><strong>القرامطة</strong><strong>، </strong><strong>ظهور</strong><strong> </strong><strong>الفاطميين</strong>).</p>
+							</div>
+						</div>
+						<div id="h3-٥-من-هم-وكلاء-الإمام-المهدي-عل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. من هم وكلاء الإمام المهدي عليه السلام في فترة الغيبة الصغرى؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> هم: ١. عثمان بن سعيد العمري، ٢. محمد بن عثمان العمري، ٣. الحسين بن روح النوبختي، ٤. علي بن محمد السمري.</p>
+							</div>
+						</div>
+						<div id="h3-٦-ماذا-يستفاد-من-تولي-ستة-خلفا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. ماذا يستفاد من تولي ستة خلفاء للدولة العباسية خلال هذه الفترة ٢٦٠ - ٢٧٩هـ؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> يستفاد منه عدم الاستقرار السياسي وضعف الخلافة العباسية، حيث كان الأتراك والموالي يسيطرون على تنصيب وعزل الخلفاء.</p>
+							</div>
+						</div>
+						<div id="h3-٧-ماذا-يعني-إدعاء-البعض-المهدو" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٧. ماذا يعني إدعاء البعض المهدوية وقيام دولة تحت هذا الاسم؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> يعني أن فكرة المهدوية كانت متجذرة ومنتشرة بين المسلمين، مما دفع البعض لاستغلالها سياسياً للوصول إلى السلطة، كما حدث مع المهدي الفاطمي في شمال أفريقيا.</p>
+							</div>
+						</div>
+						<div id="h3-٨-بماذا-تعلل-قلة-الثورات-العلو" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٨. بماذا تعلل قلة الثورات العلوية الداعية للرضا من آل محمد صلى الله عليه وآله وسلم في هذه الفترة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> بسبب كثرة الحركات المضادة للدولة (<strong>كالقرامطة</strong>) التي اختلفت أهدافها عن العلويين، والأهم هو انتهاء زمن الحضور للأئمة وبدء الغيبة، مما أدى لتضاؤل الدافع الثوري المباشر.</p>
+							</div>
+						</div>
+						<div id="h3-٩-إلى-أي-شيء-كانت-تهدف-الثورات" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٩. إلى أي شيء كانت تهدف الثورات العلوية؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لم تكن تهدف غالباً لإسقاط النظام، بل لإشغال السلطة وإبعاد ضغطها عن إمام العصر ليتمكن من أداء رسالته وإعداد قواعده.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٧---الإمام-المهدي-عليه-ا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٧ - الإمام المهدي عليه السلام والتصدي لمهام الإمامة</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-لماذا-لم-يسلم-الوفد-القمي-ال" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. لماذا لم يسلم الوفد القمي الأموال إلى جعفر؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> لأنهم طلبوا منه العلامة والدلالة التي كانوا يعرفونها من الإمام العسكري عليه السلام (<strong>وصف</strong><strong> </strong><strong>الدنانير</strong><strong> </strong><strong>وأصحابها</strong>)، فعجز عن ذلك وادعى أن ذلك علم غيب، فرفضوا تسليمه الأموال.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-هو-موقف-جعفر-من-الإمام-ال" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما هو موقف جعفر من الإمام المهدي عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> كان موقفاً معادياً، حيث ادعى الإمامة لنفسه، وأنكر وجود وريث لأخيه، ووشى بوجود الإمام المهدي عليه السلام لدى السلطات مما أدى لحملات تفتيش وملاحقة.</p>
+							</div>
+						</div>
+						<div id="h3-٣-ما-هو-موقف-الإمام-المهدي-علي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. ما هو موقف الإمام المهدي عليه السلام من مخططات جعفر لإفشالها؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> تصدى له بمنعه من الصلاة على جنازة أبيه العسكري عليه السلام، وأصدر بيانات (<strong>توقيعات</strong>) تفضح جهله وعدم أهليته للإمامة (<strong>كما</strong><strong> </strong><strong>في</strong><strong> </strong><strong>رده</strong><strong> </strong><strong>على</strong><strong> </strong><strong>رسالة</strong><strong> </strong><strong>أحمد</strong><strong> </strong><strong>بن</strong><strong> </strong><strong>إسحاق</strong>)، وأخيراً قبل توبته وعفا عنه.</p>
+							</div>
+						</div>
+						<div id="h3-٤-لماذا-امتنع-الخليفة-من-مساعد" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. لماذا امتنع الخليفة من مساعدة جعفر لتولي منصب الإمامة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لأن الخليفة أقر بأن منزلة الإمام العسكري عليه السلام كانت من الله ولم تكن بيد السلطة، وأن السلطة عجزت عن حط منزلته، فإذا لم يكن جعفر يملك تلك المنزلة في قلوب الشيعة فلن ينفعه دعم السلطان.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ما-هي-العوامل-التي-دفعت-جعفر" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ما هي العوامل التي دفعت جعفراً لادعاء الإمامة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> عدم وجود وريث ظاهر للإمام العسكري، كتمان ولادة المهدي عليه السلام، استقبال جعفر للمعزين مما هيأ له الجو، وطمعه في الأموال والزعامة، ودعم السلطة له في البداية.</p>
+							</div>
+						</div>
+						<div id="h3-٦-لماذا-كتب-أحمد-بن-إسحاق-إلى-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. لماذا كتب أحمد بن إسحاق إلى الإمام المهدي عليه السلام عن جعفر؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لأنه وصله كتاب من جعفر يدعوه فيه إلى نفسه ويدعي الإمامة، فاستغرب أحمد بن إسحاق ذلك وأراد إطلاع الإمام المهدي عليه السلام والتأكد من الأمر.</p>
+							</div>
+						</div>
+						<div id="h3-٧-ما-هي-النقاط-التي-أكد-عليها-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٧. ما هي النقاط التي أكد عليها كتاب الإمام المهدي عليه السلام حول ادعاءات جعفر؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> أشار إلى الأخطاء الإملائية في كتاب جعفر، وأكد أن الإمامة اصطفاء إلهي لمن توفرت فيهم العصمة والعلم، ونفى علم جعفر بالحلال والحرام، وذكر بسوء سيرته، وتحدى أن يجيب على المسائل الشرعية.</p>
+							</div>
+						</div>
+						<div id="h3-٨-ما-هي-علة-اعتراف-السلطة-بفشل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٨. ما هي علة اعتراف السلطة بفشل وسائلها في إبعاد الشيعة عن الأئمة عليهم السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> لأنهم أدركوا أن مكانة الأئمة روحية وإلهية في قلوب الناس، ولا يمكن للسلطة التأثير فيها أو فرض إمام غير كفؤ (<strong>مثل</strong><strong> </strong><strong>جعفر</strong>) بالقوة، كما ورد في قول الوزير والمعتمد لجعفر.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٨---تمهيدات-الرسول-صلى-ا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٨ - تمهيدات الرسول صلى الله عليه وآله وسلم والأئمة عليهم السلام للغيبة الصغرى</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-ما-هي-العلل-المشتركة-للغيبتي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. ما هي العلل المشتركة للغيبتين: الصغرى والكبرى؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<div class="qa" id="h4-العلل-المشتركة-هي" x-data="accordionItem(true)">
+								<h4 class="h4-content-title flex justify-between items-center" @click="toggle()" :style="{ 'fontSize': fontSize + 'px' }">
+									العلل المشتركة هي:
+									<span class="icon-toggle" x-text="iconText"></span>
+								</h4>
+								<div class="a" x-show="open" x-transition>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="qa" id="h2-١--أن-لا-تكون-في-عنق-الإمام-عل" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">١- أن لا تكون في عنق الإمام عليه السلام بيعة لطاغية زمانه عند خروجه.</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<p :style="{ 'fontSize': fontSize + 'px' }"> ٢- الخوف على نفسه من القتل من قبل الظالمين.</p>
+						<div id="h3-٢-ما-هي-علة-الغيبة-الصغرى-بشكل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما هي علة الغيبة الصغرى بشكل خاص؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> تختص بعلل إضافية هي:</p>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="qa" id="h2-١--التمهيد-للغيبة-الكبرى-وإثبا" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">١- التمهيد للغيبة الكبرى وإثبات ولادة الإمام ووجوده للخواص.</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> ٢- تكامل استقلال الكيان الشيعي فكرياً واستعدادهم لإدارة شؤونهم والرجوع للفقهاء (<strong>رواة</strong><strong> </strong><strong>الحديث</strong>) في زمن الغيبة الكبرى.</p>
+						<div id="h3-٣-اذكر-الأحاديث-التي-تتحدث-عن-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. اذكر الأحاديث التي تتحدث عن الغيبة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> منها قول الإمام علي بن الحسين عليه السلام: «<strong>أن</strong><strong> </strong><strong>للقائم</strong><strong> </strong><strong>منا</strong><strong> </strong><strong>غيبتين</strong><strong> </strong><strong>إحداهما</strong><strong> </strong><strong>أطول</strong><strong> </strong><strong>من</strong><strong> </strong><strong>الأخرى</strong>»، وقول الإمام الباقر عليه السلام: «<strong>إن</strong><strong> </strong><strong>للقائم</strong><strong> </strong><strong>غيبتين</strong><strong> </strong><strong>يقال</strong><strong> </strong><strong>له</strong><strong> </strong><strong>في</strong><strong> </strong><strong>إحداهما</strong><strong>: </strong><strong>هلك</strong><strong> </strong><strong>ولا</strong><strong> </strong><strong>يدري</strong><strong> </strong><strong>في</strong><strong> </strong><strong>أي</strong><strong> </strong><strong>واد</strong><strong> </strong><strong>سلك</strong>».</p>
+							</div>
+						</div>
+						<div id="h3-٤-ماذا-يستفاد-من-الأحاديث-التي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. ماذا يستفاد من الأحاديث التي تشبه سنن الإمام عليه السلام بسنن الأنبياء عليهم السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> يستفاد منها الاستدلال على الغيبة الصغرى، فكما خفي مولد بعض الأنبياء (<strong>كموسى</strong>) أو غابوا عن قومهم ثم عادوا (<strong>كيوسف</strong>)، فكذلك يجري الأمر في الإمام المهدي عليه السلام، مما يؤكد أن الغيبة سنة إلهية.</p>
+							</div>
+						</div>
+						<div id="h3-٥-هل-تحفظ-حديثا-يشير-إلى-الغيب" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. هل تحفظ حديثاً يشير إلى الغيبة الكبرى والصغرى معاً؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> نعم، حديث أبي بصير عن الإمام الباقر عليه السلام: «<strong>لقائم</strong><strong> </strong><strong>آل</strong><strong> </strong><strong>محمد</strong><strong> </strong><strong>غيبتان</strong><strong> </strong><strong>إحداهما</strong><strong> </strong><strong>أطول</strong><strong> </strong><strong>من</strong><strong> </strong><strong>الأخرى</strong>».</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-٩---الغيبة-الصغرى-والارت">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٩ - الغيبة الصغرى والارتباط بالإمام المهدي عليه السلام</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-ماذا-نقصد-بالغيبة-الصغرى-ومت" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. ماذا نقصد بالغيبة الصغرى؟ ومتى بدأت؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> يقصد بها الفترة التي كان يتصل فيها الإمام المهدي عليه السلام بقواعده الشعبية عن طريق السفراء الأربعة. وبدأت باستشهاد الإمام الحسن العسكري عليه السلام سنة ٢٦٠هـ وتولي الإمام المهدي عليه السلام مهام الإمامة.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-هو-الدليل-في-استلام-حسين-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما هو الدليل في استلام حسين بن روح السفارة مع وجود من اشتهر وعرف وكان قريباً من السفير الثاني كجعفر بن أحمد بن متيل وأبيه؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> الدليل هو النص الصريح من السفير الثاني أبي جعفر محمد بن عثمان العمري عليه بأمر من الإمام المهدي عليه السلام، وتكرار هذا الإعلان أمام وجوه الشيعة وأكابرهم قبل وفاته، بالإضافة إلى خروج توقيع من الإمام المهدي عليه السلام يوثقه ويثني عليه.</p>
+							</div>
+						</div>
+						<div id="h3-٣-ما-هي-أهمية-دور-السفراء-الأر" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. ما هي أهمية دور السفراء الأربعة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> كانوا يمثلون حلقة الوصل والوساطة بين الإمام المهدي عليه السلام وقواعده الشعبية، ينقلون إليه الأموال والأسئلة، ويخرجون للناس التوقيعات والأجوبة، ويحافظون على سرية وجود الإمام، ويوجهون القواعد الشعبية فكرياً وروحياً وسياسياً.</p>
+							</div>
+						</div>
+						<div id="h3-٤-لماذا-لم-يتح-للسفير-الرابع-ا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. لماذا لم يتح للسفير الرابع القيام بنفس النشاطات للسفراء الذين سبقوه مع جلالته وعظم منزلته؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> لقصر مدة سفارته (<strong>ثلاث</strong><strong> </strong><strong>سنوات</strong>) ولكون تلك السنوات مليئة بالظلم والجور وسفك الدماء، مما أدى إلى تحجيم نشاطه وقلة فعاليته.</p>
+							</div>
+						</div>
+						<div id="h3-٥-هل-صدرت-توقيعات-عن-الإمام-ال" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. هل صدرت توقيعات عن الإمام المهدي عليه السلام إلى قواعده في توثيق سفرائه؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> نعم، صدرت توقيعات، منها تعزية السفير الثاني بوفاة والده والثناء عليه، وتوقيع يوثق الحسين بن روح، وآخر ينعي السفير الرابع ويعلن انتهاء السفارة.</p>
+							</div>
+						</div>
+						<div id="h3-٦-متى-وقعت-الغيبة-الكبرى-وإلى-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. متى وقعت الغيبة الكبرى، وإلى من صدر التوقيع الشريف حول ذلك؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> وقعت بعد وفاة السفير الرابع علي بن محمد السمري في النصف من شعبان سنة ٣٢٩هـ. وصدر التوقيع الشريف حول ذلك إلى علي بن محمد السمري قبل وفاته بستة أيام.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١٠---السفارة-الخصائص-وال">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٠ - السفارة: الخصائص والمضمون</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-وضح-كيف-يتشابه-نشاط-وعمل-الس" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. وضح كيف يتشابه نشاط وعمل السفراء الأربعة بالرغم من اختلاف ظروفهم؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> يتشابه نشاطهم في وحدة الهدف والأسلوب، حيث كانوا جميعاً يسعون لتحقيق هدف واحد وهو التمهيد للغيبة الكبرى، وذلك تحت التوجيهات الموحدة للإمام المهدي عليه السلام.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-هي-المهمة-الأساسية-للسفار" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما هي المهمة الأساسية للسفارة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"><strong> </strong><strong>المهمة</strong><strong> </strong><strong>الأساسية</strong><strong> </strong><strong>تنحصر</strong><strong> </strong><strong>في</strong><strong> </strong><strong>أمرين</strong><strong>:</strong></p>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="qa" id="h2-١--تهيئة-الأذهان-للغيبة-الكبرى" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">١- تهيئة الأذهان للغيبة الكبرى وتعويد الناس تدريجياً على احتجاب الإمام.</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<p :style="{ 'fontSize': fontSize + 'px' }">٢- القيام بمصالح المجتمع والقواعد الشعبية التي تفوت بغياب الإمام، بحيث يقودهم الإمام برأيه عن طريق السفراء.</p>
+						<div id="h3-٣-عدد-أربعا-من-خصائص-فترة-الغي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. عدد أربعاً من خصائص فترة الغيبة الصغرى؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="qa" id="h2-١--تشابه-نشاط-السفراء-في-الأسل" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">١- تشابه نشاط السفراء في الأسلوب والهدف.</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<p :style="{ 'fontSize': fontSize + 'px' }">٢- صرف السفارة عن العلويين.</p>
+						<p :style="{ 'fontSize': fontSize + 'px' }">٣- اتخاذ بغداد مركزاً لنشاط السفراء.</p>
+						<p :style="{ 'fontSize': fontSize + 'px' }">٤- وحدة الخط في التوقيعات الصادرة عن الإمام.</p>
+						<div id="h3-٤-ما-المقصود-بتوقيع-الإمام-علي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. ما المقصود بتوقيع الإمام عليه السلام وضح ذلك؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> المقصود بالتوقيع هو الكلمات القصار التي يكتبها الإمام عليه السلام بخطه في ذيل الرسائل والعرائض كجواب للأسئلة أو حل للمشاكل، سواء كانت عقائدية أو فقهية أو اجتماعية.</p>
+							</div>
+						</div>
+						<div id="h3-٥-بين-كيفية-ارتباط-السفراء-بقو" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. بين كيفية ارتباط السفراء بقواعدهم الموالية؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كان الارتباط هرمياً؛ حيث يتصل السفير بالوكلاء الخاصين (<strong>مثل</strong><strong> </strong><strong>العشرة</strong><strong> </strong><strong>وكلاء</strong><strong> </strong><strong>للعمري</strong>)، وهؤلاء يتصلون بوجهاء الشيعة، والوجهاء يتصلون بعامة الناس. وهذا النظام يضمن السرية، حيث لا يعرف عامة الناس السفير مباشرة بل يتصلون به عبر وسائط.</p>
+							</div>
+						</div>
+						<div id="h3-٦-هل-اتخذ-بعض-السفراء-وسائل-مع" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. هل اتخذ بعض السفراء وسائل معينة في التخفي للتمويه على السلطة؟ وضح ذلك.</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> نعم، مثل السفير الثالث الحسين بن روح الذي أظهر الاعتقاد بمذهب أهل السنة وفضل الخلفاء الثلاثة في مجلس عام، مما جعل الناس يرفعون التهمة عنه ويبعدون الشبهات عن سفارته.</p>
+							</div>
+						</div>
+						<div id="h3-٧-لماذا-وقع-الاختيار-على-بغداد" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٧. لماذا وقع الاختيار على بغداد لتكون مسرحاً لنشاط السفراء الأربعة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> بأمر من الإمام عليه السلام، وربما لكونها تتوسط أمصار الدولة الإسلامية، ولكبر مساحتها وكثرة سكانها مما يسهل إخفاء العمل والتكتم وسط الزحام، ولأنها نقطة التقاء الوافدين.</p>
+							</div>
+						</div>
+						<div id="h3-٨-ما-هو-دور-وفد-القميين-في-إيض" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٨. ما هو دور وفد القميين في إيضاح فكرة الغيبة لدى القواعد الشعبية الموالية؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كان لهم أثر كبير في إزالة الغموض وتوضيح فكرة السفارة في بداية الغيبة، حيث أخبرهم الإمام المهدي عليه السلام بتعيين وكيل في بغداد، فنقلوا هذا الخبر ووضحوا للناس الجهة التي يجب الرجوع إليها (<strong>السفير</strong><strong> </strong><strong>في</strong><strong> </strong><strong>بغداد</strong>).</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١١---السفارات-المزورة">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١١ - السفارات المزورة</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-وضح-أسباب-إدعاء-السفارة-المز" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. وضح أسباب إدعاء السفارة المزوّرة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> أسبابها ثلاثة: ١- ضعف الإيمان وعدم الإخلاص وقابلية الانحراف. ٢- الطمع بالأموال والحقوق الشرعية. ٣- طلب الشهرة الاجتماعية والتحكم في القواعد الشعبية الموالية للإمام.</p>
+							</div>
+						</div>
+						<div id="h3-٢-كم-شخصا-ادعى-هذه-السفارة" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. كم شخصاً ادعى هذه السفارة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> ذكر النص عدداً منهم: ١- أبو محمد الشريعي. ٢- محمد بن نصير النميري. ٣- أحمد بن هلال الكرخي. ٤- أبو طاهر محمد بن علي بن بلال. ٥- أبو بكر البغدادي (<strong>ابن</strong><strong> </strong><strong>أخ</strong><strong> </strong><strong>السفير</strong><strong> </strong><strong>الثاني</strong>). ٦- إسحاق الأحمر. ٧- الباقطاني. ٨- محمد بن علي الشلمغاني. ٩- أبو دلف الكاتب. ١٠- الحسين بن منصور الحلاج.</p>
+							</div>
+						</div>
+						<div id="h3-٣-ما-هو-التسلسل-التأريخي-لتزوي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. ما هو التسلسل التأريخي لتزوير السفارة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> بدأ التزوير في عهد السفير الثاني (<strong>محمد</strong><strong> </strong><strong>بن</strong><strong> </strong><strong>عثمان</strong><strong> </strong><strong>العمري</strong>)، حيث لم يظهر في عهد السفير الأول لقصره ومكانته. واستمر خلال عهد السفير الثالث (<strong>الشلمغاني</strong><strong> </strong><strong>والحلاج</strong>) وحتى بعد السفير الرابع (<strong>أبو</strong><strong> </strong><strong>دلف</strong>).</p>
+							</div>
+						</div>
+						<div id="h3-٤-ما-هو-دور-السفراء-في-إفشال-م" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. ما هو دور السفراء في إفشال مخططات مدعي السفارة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> جابهوهم بكل قوة، وكشفوا انحرافهم، ونقلوا التوقيعات والبيانات الصادرة عن الإمام المهدي عليه السلام التي تلعنهم وتتبرأ منهم وتفضح كذبهم.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ما-هو-موقف-الإمام-المهدي-علي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ما هو موقف الإمام المهدي عليه السلام من مدعي السفارة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> أصدر بحقهم التوقيعات والبيانات التي تتضمن لعنهم والبراءة منهم، والتأكيد على كذب ادعائهم وسوء سريرتهم، ليحذر القواعد الشعبية منهم.</p>
+							</div>
+						</div>
+						<div id="h3-٦-لماذا-كان-موقف-الإمام-عليه-ا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. لماذا كان موقف الإمام عليه السلام وسفراؤه شديداً تجاه هذا الانحراف ومدعيه؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> لأن خطر المنحرفين الداخليين (<strong>الذين</strong><strong> </strong><strong>يتاجرون</strong><strong> </strong><strong>باسم</strong><strong> </strong><strong>الإمام</strong><strong> </strong><strong>ويدخلون</strong><strong> </strong><strong>لعقول</strong><strong> </strong><strong>الناس</strong><strong> </strong><strong>عبر</strong><strong> </strong><strong>الدين</strong>) أشد وأضر من خطر السلطات الخارجي، فهم يشوهون العقيدة ويضلون الناس، بينما السلطة لا تملك إلا القوة المادية التي لا تؤثر في العقيدة.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١٢---تفاصيل-أعمال-السفرا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٢ - تفاصيل أعمال السفراء (١)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-بين-دور-السفراء-في-إخفاء-وجو" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. بين دور السفراء في إخفاء وجود الإمام عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كان للسفراء دور رئيسي في إخفاء الإمام، حيث رفضوا التصريح باسمه (<strong>كما</strong><strong> </strong><strong>فعل</strong><strong> </strong><strong>السفير</strong><strong> </strong><strong>الأول</strong>)، ونقلوا التوقيعات التي تحرم ذكر اسمه وتتوعد من يفعل ذلك بالنار، وأكدوا على السرية لدرجة أنهم لو قرضوا بالمقاريض لما كشفوا عنه.</p>
+							</div>
+						</div>
+						<div id="h3-٢-بين-الجهاد-العلمي-للسفراء" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. بين الجهاد العلمي للسفراء؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> تمثل في إثبات صدقهم ونيابتهم عبر العلوم والمعجزات (<strong>كالتكلم</strong><strong> </strong><strong>بلغات</strong><strong> </strong><strong>مختلفة</strong><strong>، </strong><strong>والإخبار</strong><strong> </strong><strong>بالمغيبات</strong><strong> </strong><strong>بإذن</strong><strong> </strong><strong>الإمام</strong>)، والرد على الشبهات العقائدية، والتأكيد على أنهم لا يقولون في الدين بآرائهم بل بما سمعوه من الحجة عليه السلام، مما عزز العقيدة الصحيحة لدى القواعد.</p>
+							</div>
+						</div>
+						<div id="h3-٣-اذكر-موردا-واحدا-يوضح-مساندة" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. اذكر مورداً واحداً يوضح مساندة الإمام عليه السلام للسفراء في حل مشكلة تتعلق بشخص ادعى السفارة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> مورد الشلمغاني (<strong>العزاقري</strong>)، حيث طلب المباهلة من الحسين بن روح، فجاء الجواب من الإمام عليه السلام: &quot;أينا تقدم صاحبه فهو المخصوم&quot;، فمات الشلمغاني (<strong>قتل</strong><strong> </strong><strong>وصلب</strong>) قبله، مما أثبت كذبه وصدق السفير.</p>
+							</div>
+						</div>
+						<div id="h3-٤-وضح-أثر-التوقيعات-في-تماسك-و" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. وضح أثر التوقيعات في تماسك وترابط القواعد الشعبية بالسفراء.</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كان للتوقيعات أثر كبير في حل مشاكل الناس الشخصية والاجتماعية (<strong>كالشفاء</strong><strong>، </strong><strong>والرزق</strong><strong> </strong><strong>بالولد</strong><strong>، </strong><strong>والإصلاح</strong><strong> </strong><strong>بين</strong><strong> </strong><strong>الزوجين</strong><strong>، </strong><strong>والإذن</strong><strong> </strong><strong>بالسفر</strong>)، مما زاد من ثقة الناس بالسفراء كوسطاء صادقين يحلون مشاكلهم ببركة الإمام، فقويت الرابطة والتماسك.</p>
+							</div>
+						</div>
+						<div id="h3-٥-هل-صدرت-توقيعات-حول-تحذير-ال" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. هل صدرت توقيعات حول تحذير السفراء من السلطة وضح ذلك؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> نعم، صدر توقيع يأمر الوكلاء بعدم أخذ شيء من أحد وتجاهل الأمر، وذلك عندما خطط الوزير عبد الله بن سليمان للإيقاع بهم عبر جواسيس يدعون دفع الأموال، فنجا الوكلاء بفضل هذا التحذير.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١٣---تفاصيل-أعمال-السفرا">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٣ - تفاصيل أعمال السفراء (٢)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-هل-تتوافق-الروايات-الواردة-ع" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. هل تتوافق الروايات الواردة عن الأئمة عليهم السلام حول صفة الإمام عليه السلام مع ما ورد من أحاديث عن النبي صلى الله عليه وآله وسلم؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> نعم، تتوافق، فقد رآه الناس صبياً بوجه أسمر وشعر قطط وأسنان مفلجة، وهي الصفات التي وردت عن الرسول صلى الله عليه وآله وسلم والأئمة عليهم السلام.</p>
+							</div>
+						</div>
+						<div id="h3-٢-بماذا-اتسمت-البيانات-والتوقي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. بماذا اتسمت البيانات والتوقيعات الصادرة من الإمام خلال حياة السفير الأول؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> اتسمت بالقلة والندرة، وذلك لشدة الحاجة إلى الحذر والتكتم في تلك الفترة الحرجة، ولبعد المسافة بين الإمام وسفرائه في بداية الغيبة.</p>
+							</div>
+						</div>
+						<div id="h3-٣-كيف-كان-تنقل-الإمام-عليه-الس" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. كيف كان تنقل الإمام عليه السلام بين المناطق المختلفة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كان يتنقل بزي تاجر للتمويه على السلطة، وزار بغداد وكربلاء ومكة لأداء الحج، وحتى مصر (<strong>الإسكندرية</strong>)، ثم يعود لبغداد لإدارة الأمور.</p>
+							</div>
+						</div>
+						<div id="h3-٤-هل-زار-الإمام-مناطق-مواليه-و" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. هل زار الإمام مناطق مواليه وقواعده؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> نعم، تشير الروايات إلى أنه تنقل بين الأمصار التي يسكنها مواليه، وزار كربلاء، وتواجد في بغداد، وموسم الحج.</p>
+							</div>
+						</div>
+						<div id="h3-٥-هل-شوهد-الإمام-عليه-السلام-ي" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. هل شوهد الإمام عليه السلام يؤدي مراسم الحج؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> نعم، شوهد يحضر الموسم كل سنة، يرى الناس ويعرفهم وهم لا يعرفونه، وكان يرتدي ثياب الإحرام (<strong>إزار</strong><strong> </strong><strong>ورداء</strong>).</p>
+							</div>
+						</div>
+						<div id="h3-٦-بماذا-تفسر-الحيوية-الدائمة-ل" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. بماذا تفسر الحيوية الدائمة للإمام عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> تفسر بأمرين: الأول هو الإيمان بقدرة الله المطلقة التي تحفظ الإمام للمصلحة الكبرى (<strong>مثل</strong><strong> </strong><strong>أصحاب</strong><strong> </strong><strong>الكهف</strong>)، والثاني هو النمو البطيء بحيث يظهر شاباً (<strong>مقدرا</strong><strong>ً </strong><strong>بأربعين</strong><strong> </strong><strong>عاما</strong><strong>ً</strong>) عند خروجه، مما قد يسبب إنكار الناس له لظنهم أنه شيخ كبير.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١٤---الإمام-المهدي-عليه-">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٤ - الإمام المهدي عليه السلام في الغيبة الصغرى (١)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-ماذا-قصد-الإمام-عليه-السلام-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. ماذا قصد الإمام عليه السلام من نشاطاته المختلفة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> قصد تعريف الأمة بوجوده وأهمية هذا الوجود المبارك، وإسناد ومساعدة المؤمنين في حياتهم الفكرية والعقائدية والاجتماعية، وتأسيس النيابة الخاصة والعامة، وحفظ الكيان الشيعي، وتوفير الوسائل السليمة للاتصال بالله سبحانه.</p>
+							</div>
+						</div>
+						<div id="h3-٢-وضح-دور-الإمام-عليه-السلام-خ" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. وضح دور الإمام عليه السلام خلال الغيبة الصغرى؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> تمثل دوره في: ١. إثبات وجوده وإمامته (<strong>كالصلاة</strong><strong> </strong><strong>على</strong><strong> </strong><strong>أبيه</strong>). ٢. صيانة تراث آبائه وتنمية الناحية العلمية (<strong>تدوين</strong><strong> </strong><strong>الأصول</strong>). ٣. إرساء نظام النيابة الخاصة وتعيين السفراء. ٤. حماية الكيان الشيعي من الاضطهاد وحل مشاكلهم. ٥. اللقاء بالمؤمنين لتثبيتهم ودحض حجج المكذبين.</p>
+							</div>
+						</div>
+						<div id="h3-٣-ما-هو-دور-الإمام-المهدي-عليه" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. ما هو دور الإمام المهدي عليه السلام في تركيز فكرة النيابة العامة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> دوره تمثل في وضع الإطار العام والشروط الواجب توفرها في النائب العام (<strong>مثل</strong><strong> </strong><strong>صفات</strong><strong> </strong><strong>الفقيه</strong>) في مرحلة الغيبة الكبرى، إتماماً لما ورد عن آبائه عليهم السلام.</p>
+							</div>
+						</div>
+						<div id="h3-٤-ماذا-كان-قصد-الإمام-عليه-الس" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. ماذا كان قصد الإمام عليه السلام من لقاءاته بالمؤمنين؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> كان يقصد دحض أقوال المكذبين الذين ينكرون وجوده وولادته، وتثبيت المؤمنين على الحق، كما صرح بذلك لعيسى الجوهري.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ما-هو-دور-الإمام-عليه-السلام" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ما هو دور الإمام عليه السلام في حفظ الكيان الشيعي خلال فترة الغيبة الصغرى؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> سعى لحفظهم من اضطهاد السلطة العباسية (<strong>مثل</strong><strong> </strong><strong>منعهم</strong><strong> </strong><strong>من</strong><strong> </strong><strong>زيارة</strong><strong> </strong><strong>المقابر</strong><strong> </strong><strong>عند</strong><strong> </strong><strong>الخطر</strong><strong>، </strong><strong>ومنع</strong><strong> </strong><strong>الوكلاء</strong><strong> </strong><strong>من</strong><strong> </strong><strong>استلام</strong><strong> </strong><strong>الأموال</strong><strong> </strong><strong>علنا</strong><strong>ً</strong>)، وقضى حوائجهم الشخصية والاجتماعية، وكشف الانحرافات العقائدية، وأفشل مخططات مدعي السفارة المزورة.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١٥---الإمام-المهدي-في-ال">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٥ - الإمام المهدي في الغيبة الصغرى (٢)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-وضح-سبب-محاولات-التفتيش-والب" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. وضح سبب محاولات التفتيش والبحث عن الإمام من قبل السلطة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> لأن السلطة تعلم أن الإمام المهدي عليه السلام هو المذخور لرفع الظلم والجور عن الإنسانية، ولأنها تدرك ضعف كيانها وانحرافه، فاعتبرت وجوده تهديداً مباشراً لكيان الدولة العباسية الظالمة، ولذا سعت للقبض عليه وقتله.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-الذي-كان-يتوخاه-المعتضد-م" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما الذي كان يتوخاه المعتضد من الغموض والإبهام في أوامره التي أصدرها لقتل الإمام عليه السلام؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> توخى من ذلك تحقيق ثلاثة أهداف: الأول، عدم إثارة مسألة المهدي عليه السلام أمام الجلاوزة. الثاني، عدم كشف مهمتهم الحقيقية لتجنب تسرب الخبر للمجتمع مما يؤثر على سمعته. الثالث، المحافظة على سرية المطلب حتى عن خاصة رجال الدولة وجهاز الاستخبارات.</p>
+							</div>
+						</div>
+						<div id="h3-٣-ما-هي-نتائج-التصرف-الذي-صدر-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. ما هي نتائج التصرف الذي صدر من الإمام عليه السلام تجاه الحملة التفتيشية لداره؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> كانت النتيجة غرق الرجلين اللذين حاولا تخطي الغرفة الممتلئة بالماء كالبحر وإخراجهما مغشياً عليهما، وإصابة قائد الحملة (<strong>رشيق</strong>) بالذهول والرعب واعترافه بالعجز، ومن ثم انسحابهم خائبين وعودتهم إلى الخليفة وهم يحملون الهول بين جوانحهم.</p>
+							</div>
+						</div>
+						<div id="h3-٤-اذكر-الآثار-التي-تركها-تصرف-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. اذكر الآثار التي تركها تصرف الإمام عليه السلام في نفوس المهاجمين؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> ترك أثراً رهيباً حيث أصابهم الهول والفزع والشعور بالعجز أمام قوى تتجاوز القوة الاعتيادية، واضطر القائد للندم والاعتذار من الإمام، كما سيطر عليهم رعب شديد منعهم من الإفصاح عما رأوه إلا بعد موت الخليفة المعتضد.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ما-هي-الأمور-التي-أدت-إلى-حف" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ما هي الأمور التي أدت إلى حفظ الإمام عليه السلام من السلطة وجلاوزتها؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> حفظته الرعاية الإلهية التي أظهرت كراماته (<strong>كالغرفة</strong><strong> </strong><strong>المائية</strong><strong> </strong><strong>التي</strong><strong> </strong><strong>أغرقت</strong><strong> </strong><strong>المهاجمين</strong>)، والتدبير الدقيق من قبله عليه السلام في اختيار لحظات الغفلة لدى الجند للخروج (<strong>كما</strong><strong> </strong><strong>حدث</strong><strong> </strong><strong>عند</strong><strong> </strong><strong>باب</strong><strong> </strong><strong>السرداب</strong>)، والذهول الذي أصاب الجلاوزة ومنعهم من رؤيته أو إيقافه رغم مروره من أمامهم.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+
+<div x-data="accordionItem(true)" class="content-container" id="h1-الدرس-١٦---من-تراث-الإمام-المه">
+	<button @click="toggle()" class="accordion-button">
+		<div class="accordion-title-group">
+			<h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٦ - من تراث الإمام المهدي في الغيبة الصغرى (١)</h2>
+			<span class="icon-toggle" x-text="iconText"></span>
+		</div>
+	</button>
+	<div x-show="open" x-transition class="accordion-panel">
+		<section>
+					<div class="qa" id="h2-الأسئلة" x-data="accordionItem(true)">
+						<div class="q-title flex justify-between items-center" @click="toggle()">
+							<span :style="{ 'fontSize': fontSize + 'px' }">الأسئلة</span>
+							<span class="icon-toggle" x-text="iconText"></span>
+						</div>
+						<div class="a" x-show="open" x-transition>
+						<div id="h3-١-بين-المناحي-التي-تضمنها-تراث" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">١. بين المناحي التي تضمنها تراث الإمام المهدي عليه السلام ؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> تضمن مناحي متعددة في الجوانب الفكرية والعقائدية، فضلاً عن رسائله التي عالجت مشاكل آنية وأخرى بعيدة ومستقبلية تتعلق بكيان الجماعة الصالحة والقواعد الموالية للإمام عليه السلام، كإيضاح أسباب الغيبة وتكاليف الشيعة.</p>
+							</div>
+						</div>
+						<div id="h3-٢-ما-هي-إشارات-الإمام-عليه-الس" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٢. ما هي إشارات الإمام عليه السلام إلى مقام ومكانة الأئمة عند الله سبحانه؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> أشار إلى أنهم قدوة الله وأئمة وخلفاؤه في أرضه، وأمناؤه على خلقه وحججه في بلاده، يعرفون الحلال والحرام وتأويل الكتاب، وأنهم عباد مكرمون يسألون الله فيخلق ويرزق إيجاباً لمسألتهم وإعظاماً لحقهم.</p>
+							</div>
+						</div>
+						<div id="h3-٣-اذكر-الكيفية-التي-دحض-بها-ال" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٣. اذكر الكيفية التي دحض بها الإمام عليه السلام ادعاءات عمه جعفر بن علي عليه السلام ؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> دحض ادعاءاته ببيان جهله بالحلال والحرام والخطأ والصواب، وعدم فقهه في دين الله، وتركه للصلاة الفرض أربعين يوماً، واشتهار آثار عصيانه، وتحداه بأن يأتي بآية أو حجة أو دلالة، وأن يفسر آية من كتاب الله أو يبين حدود صلاة فريضة ليظهر للناس عواره ونقصانه.</p>
+							</div>
+						</div>
+						<div id="h3-٤-وضح-علة-الخلق-وبعث-الأنبياء-" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٤. وضح علة الخلق وبعث الأنبياء كما وردت في كلمات الإمام ؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> ذكر أن الله لم يخلق الخلق عبثاً ولم يهملهم سدى، بل خلقهم وجعل لهم أسماعاً وأبصاراً، ثم بعث إليهم الأنبياء مبشرين ومنذرين يأمرونهم بطاعته وينهونهم عن معصيته، ويعرفونهم ما جهلوه من أمر دينهم، لتكون لهم الحجة وحتى يُعرف الحق من الباطل والعالم من الجاهل.</p>
+							</div>
+						</div>
+						<div id="h3-٥-ما-هي-وصية-الإمام-عليه-السلا" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٥. ما هي وصية الإمام عليه السلام لقواعده ليكونوا في أتم الاستعداد لظهوره عليه السلام ؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p class="p-content" :style="{ 'fontSize': fontSize + 'px' }"> أوصاهم بالرجوع في الحوادث الواقعة إلى رواة أحاديثهم (<strong>الفقهاء</strong>) لأنهم حجته على الناس وهو حجة الله، وأمرهم بتقوى الله والتسليم لأمرهم والمودة على السنة الواضحة، وعدم محاولة كشف ما غطي عنهم أو البحث عما ستر عنهم، وكثرة الدعاء بتعجيل الفرج.</p>
+							</div>
+						</div>
+						<div id="h3-٦-ما-هي-أهمية-الرسائل-التي-بعث" x-data="accordionItem(true)">
+							<div class="h3-content-title flex justify-between items-center" @click="toggle()">
+								<span :style="{ 'fontSize': fontSize + 'px' }">٦. ما هي أهمية الرسائل التي بعثها الإمام عليه السلام إلى أعلام الطائفة؟</span>
+								<span class="icon-toggle" x-text="iconText"></span>
+							</div>
+							<div class="a" x-show="open" x-transition>
+							<p :style="{ 'fontSize': fontSize + 'px' }"> أهميتها تكمن في معالجة المشاكل الآنية والمستقبلية، وتوضيح المشاكل العقائدية مثل إمامة أهل البيت عليهم السلام وأسباب الغيبة وفوائدها، ونبذ الغلو وتفنيد ادعاءات المزورين كالشلمغاني وجعفر، وإرشاد الأمة للرجوع إلى الفقهاء للحفاظ على مسارهم الصحيح.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+		</section>
+	</div>
+</div>
+      </article>
+    </div>
+ </div> 
+
+<script src="../js/script_source-text.js"></script>
+<script src="../js/nav-loader.js"></script>
+<script src="../js/page-init.js"></script> 
+<script>
+    // Initialize the Navbar
+    document.addEventListener('DOMContentLoaded', function() {
+        loadNavbar({ 
+            pageType: 'sub', 
+            showTools: true 
+        });
+    });
+</script>
+  </body>
+</html>

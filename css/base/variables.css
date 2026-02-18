@@ -1,0 +1,60 @@
+/* === 1. GLOBAL VARIABLES & BOOTSTRAP OVERRIDES === */
+
+:root {
+    --content-font-size: 18px;
+    /* الخلفية والتدرجات الأساسية */
+    --main-gradient: radial-gradient(circle at center, #4b6856, #283b2f);
+    
+    /* الألوان الأساسية */
+    --muted: #555;
+    --accent: #074344;
+    --accent-dark: #074344;
+    --card-bg: #aabba5; /* استبدلنا اسم --card بـ --card-bg لتوضيح المعنى */
+    --hr-color: #020202;
+    
+    /* Modern UI Colors (مكافئة لألوان Tailwind التي كنت تستخدمها) */
+    --color-success: #10b981;
+    --color-success-dark: #059669;
+    --color-success-bg: #d1fae5;
+    --color-success-text: #065f46;
+    
+    --color-danger: #ef4444;
+    --color-danger-dark: #dc2626;
+    --color-danger-bg: #fee2e2;
+    --color-danger-text: #991b1b;
+    
+    --color-warning: #f59e0b;
+    --color-warning-dark: #d97706;
+
+    --color-info-bg: #e0f2fe;
+    --color-info-text: #0b50a0;
+    
+    --color-disabled-bg: #cbd5e1;
+    --color-disabled-text: #4b5563;
+    
+    /* Fonts */
+    --font-tajawal: 'Tajawal', sans-serif;
+    
+    /* Bootstrap overrides */
+    --bs-body-bg: transparent; /* نترك الخلفية للتدرج الخاص بنا */
+    --bs-body-color: #000000;
+}
+
+/* الوضع الليلي */
+html.dark body {
+    --bg-solid: #346844;
+    --text-main: #eaeaea;
+    --muted: #bdbdbd;
+    --accent: #4db679;
+    --accent-dark: #2e7d74;
+    --card-bg: #1b1b1b;
+    --hr-color: #2b2b1b;
+
+    --color-success-bg: #065f46;
+    --color-success-text: #d1fae5;
+    --color-danger-bg: #991b1b;
+    --color-danger-text: #fee2e2;
+
+    /* Override text color for dark mode */
+    --bs-body-color: #eaeaea;
+}

@@ -1,0 +1,165 @@
+/* === 9. 3D CARD FLIP (Renamed to avoid Bootstrap .card conflict) === */
+
+.card-container {
+    perspective: 1500px;
+    height: auto;
+    min-height: 200px;
+    padding-bottom: 4rem;
+}
+
+.card-container .card {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 2.0s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); 
+    border-radius: 1.5rem;
+    transform: translateZ(0);
+    /* Reset Bootstrap styles */
+    background: transparent;
+    border: none;
+    display: block; 
+}
+
+.card-container .card.flipped {
+    transform: rotateY(180deg) translateZ(0);
+}
+.card-container .card.enter {
+    animation: fall-enter 2.0s forwards;
+}
+.card-container .card.exit {
+    animation: fall-exit 2.0s forwards;
+}
+
+@keyframes fall-enter {
+    0% { transform: translateY(50px) rotateX(-90deg); opacity: 0; }
+    100% { transform: translateY(0) rotateX(0deg); opacity: 1; }
+}
+@keyframes fall-exit {
+    0% { transform: translateY(0) rotateX(0deg); opacity: 1; }
+    100% { transform: translateY(-50px) rotateX(90deg); opacity: 0; }
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 1.0s, transform 1.0s;
+    background-color: var(--card-bg);
+    border: 1px solid var(--hr-color);
+    color: inherit; 
+}
+
+/* === تعديلات إصلاح خلفية عنوان البطاقة === */
+
+/* استهداف الوجه الأمامي بدقة */
+#front-face {
+    z-index: 2;
+    opacity: 1; 
+}
+
+/* استهداف الوجه الخلفي بدقة */
+#back-face {
+    z-index: 1;
+    background: rgb(247, 193, 193); 
+    color: white; 
+    border-color: var(--color-danger-dark);
+    transform: rotateY(180deg);
+    opacity: 0; 
+}
+
+.card-container .card.flipped #front-face {
+    opacity: 0;
+}
+.card-container .card.flipped #back-face {
+    opacity: 1;
+}
+
+/* إجبار لون خلفية عنوان البطاقة (السؤال والجواب) */
+/* نستخدم ID مع !important لضمان تجاوز أي كلاسات أخرى */
+
+#front-header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+#back-header {
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
+    color: white !important;
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* ------------------------------------- */
+
+.card-content {
+    flex-grow: 1;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.75;
+    overflow-y: auto;
+    max-height: 70%;
+    min-height: 8.75rem;
+    padding: 0 0.5rem;
+    color: black;
+}
+#back-face .card-content {
+    color: black; 
+}
+.quiz-button {
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #d1d5db !important;
+}
+#front-face .quiz-button {
+    background: #3b82f6 !important; 
+    color: white !important;
+}
+#back-face .quiz-button {
+    background: #f97316 !important; 
+    color: white !important;
+}
+/* تم إزالة الحركة العمودية */
+.quiz-button:hover {
+    opacity: 0.9;
+    transform: none !important; 
+}
+.end-screen {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--card-bg);
+    color: inherit;
+    border-radius: 1.5rem;
+}
+#score-counter {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: inherit;
+    position: relative;
+    background-color: var(--card-bg);
+    border: 1px solid var(--hr-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}

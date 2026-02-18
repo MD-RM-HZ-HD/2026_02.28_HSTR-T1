@@ -1,0 +1,77 @@
+/* === 4. BUTTONS & INTERACTIVE ELEMENTS === */
+
+/* تخصيص أو تجاوز أزرار Bootstrap */
+.btn-custom {
+    background: rgba(0, 0, 0, 0.05);
+    color: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease;
+    line-height: 1.5;
+}
+
+html.dark body .btn-custom {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-custom:hover {
+    background: rgba(0,0,0,0.1);
+    color: inherit;
+}
+html.dark body .btn-custom:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* أزرار الأيقونات */
+.icon-btn {
+    background: transparent;
+    color: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+html.dark body .icon-btn {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === 7. HOMEPAGE: QUIZ BUTTONS (LITE VERSION) === */
+/* تم إزالة اللمعان والحركة لتسريع الأداء */
+
+.btn-quiz {
+    position: relative;
+    z-index: 1;
+    border: 2px solid #d1d5db;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ظل خفيف وثابت */
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    border-radius: 12px;
+    /* إلغاء الحركات */
+    transform: none !important; 
+    transition: background 0.2s ease; 
+}
+
+/* إخفاء طبقات اللمعان تماماً */
+.btn-quiz::after,
+.btn-quiz::before {
+    display: none !important;
+    content: none;
+}
+
+/* عند الضغط: تغيير لون بسيط فقط */
+.btn-quiz:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

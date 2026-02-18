@@ -1,0 +1,216 @@
+/* =========================================
+   MINDMAP.CSS - Guaranteed Colors
+   - يلون العقد بطريقتين (المستوى والتسلسل) لضمان ظهور الألوان
+   - يدعم RTL واللمس بشكل كامل
+   ========================================= */
+
+/* --- 1. حاوية الخريطة --- */
+.mindmap-wrapper {
+    width: 100%;
+    min-height: 50vh;
+    overflow: auto;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    direction: rtl;
+    text-align: right;
+    padding: 2rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    cursor: default;
+    
+    /* منع تحديد النص */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html.dark body .mindmap-wrapper {
+    background-color: rgba(31, 41, 55, 0.5);
+    border-color: #374151;
+}
+
+/* --- 2. الحاوية الداخلية --- */
+#mindmap-tree-container {
+    display: inline-block; 
+    transform: none !important; 
+    width: auto;
+    min-width: 100%;
+}
+
+/* --- 3. هيكلية الشجرة --- */
+.mindmap-v-tree {
+    font-size: inherit; 
+    direction: rtl;
+}
+
+.mindmap-v-tree ul {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding-right: 2em; 
+}
+
+.mindmap-v-tree li.collapsed > ul {
+    display: none !important;
+}
+
+.mindmap-v-tree li {
+    position: relative;
+    padding: 0.4em 0;
+    white-space: nowrap; 
+}
+
+/* إصلاح حجم الخط في الموبايل */
+@media (max-width: 767px) {
+    .mindmap-v-tree li,
+    .mindmap-v-tree li > span {
+        font-size: inherit !important; 
+        line-height: normal !important;
+    }
+}
+
+/* --- 4. تنسيق العقد (الافتراضي) --- */
+.mindmap-v-tree li > span {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5em;
+    font-weight: 600;
+    font-size: 1em;            
+    min-width: 5em;
+    text-align: center;
+    position: relative; 
+    z-index: 10;
+    cursor: pointer; 
+    background-color: #ffffff;
+    color: #1f2937;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.1s;
+}
+
+.mindmap-v-tree li > span:active {
+    transform: scale(0.98);
+}
+
+.mindmap-v-tree li > span.leaf-node {
+     white-space: normal; 
+     max-width: 20em;
+     text-align: right;   
+     font-weight: 500;   
+     cursor: default; 
+}
+
+/* =========================================
+   5. نظام الألوان المزدوج (Double-Check Coloring)
+   نستخدم طريقتين في نفس الوقت لضمان التطبيق
+   ========================================= */
+
+/* --- المستوى 1: أخضر (الجذر) --- */
+/* الطريقة 1: عبر data-level */
+.mindmap-v-tree li > span[data-level="1"],
+/* الطريقة 2: عبر التسلسل الهرمي (Fallback) */
+.mindmap-v-tree > ul > li > span {
+    background-color: #059669 !important; 
+    color: white !important; 
+    border-color: #047857 !important; 
+    font-size: 1.2em !important;
+    font-weight: 700 !important;
+}
+
+/* --- المستوى 2: أزرق سماوي --- */
+.mindmap-v-tree li > span[data-level="2"],
+.mindmap-v-tree > ul > li > ul > li > span {
+    background-color: #e0f2fe !important; 
+    border-color: #38bdf8 !important; 
+    color: #0369a1 !important; 
+}
+
+/* --- المستوى 3: وردي --- */
+.mindmap-v-tree li > span[data-level="3"],
+.mindmap-v-tree > ul > li > ul > li > ul > li > span {
+    background-color: #fce7f3 !important; 
+    border-color: #f472b6 !important; 
+    color: #9d174d !important; 
+}
+
+/* --- المستوى 4: أبيض بإطار داكن --- */
+.mindmap-v-tree li > span[data-level="4"],
+.mindmap-v-tree > ul > li > ul > li > ul > li > ul > li > span {
+    background-color: #ffffff !important; 
+    border-color: #374151 !important; 
+    color: #111827 !important; 
+    font-weight: 700 !important;
+}
+
+/* --- المستوى 5: برتقالي --- */
+.mindmap-v-tree li > span[data-level="5"],
+.mindmap-v-tree > ul > li > ul > li > ul > li > ul > li > ul > li > span {
+    background-color: #ffedd5 !important; 
+    border-color: #f97316 !important; 
+    color: #7c2d12 !important;            
+}
+
+/* --- المستوى 6 وما بعده: رمادي/برتقالي فاتح --- */
+.mindmap-v-tree li > span[data-level="6"],
+.mindmap-v-tree > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > span {
+    background-color: #fff7ed !important; 
+    border-color: #fdba74 !important; 
+    color: #9a3412 !important;
+}
+
+/* --- 6. الخطوط الرابطة (RTL) --- */
+.mindmap-v-tree ul > li::before {
+    content: ""; position: absolute; top: 0; right: -1em; width: 1px; height: 100%; background-color: #9ca3af;
+}
+
+.mindmap-v-tree ul > li::after {
+    content: ""; position: absolute; top: 50%; transform: translateY(-50%); right: -1em; width: 1em; height: 1px; background-color: #9ca3af;
+}
+
+.mindmap-v-tree ul > li:last-child::before { height: 50%; }
+
+.mindmap-v-tree > ul > li::before, 
+.mindmap-v-tree > ul > li::after { display: none; }
+
+/* --- 7. الوضع الليلي --- */
+html.dark body .mindmap-v-tree li > span { 
+    background-color: #374151; color: #e5e7eb; border-color: #4b5563; 
+}
+
+/* ألوان الوضع الليلي (بالطريقتين أيضاً) */
+html.dark body .mindmap-v-tree li > span[data-level="1"],
+html.dark body .mindmap-v-tree > ul > li > span { 
+    background-color: #065f46 !important; color: #ecfdf5 !important; border-color: #047857 !important; 
+}
+
+html.dark body .mindmap-v-tree li > span[data-level="2"],
+html.dark body .mindmap-v-tree > ul > li > ul > li > span { 
+    background-color: #075985 !important; color: #e0f2fe !important; border-color: #0369a1 !important; 
+}
+
+html.dark body .mindmap-v-tree li > span[data-level="3"],
+html.dark body .mindmap-v-tree > ul > li > ul > li > ul > li > span { 
+    background-color: #831843 !important; color: #fce7f3 !important; border-color: #be185d !important; 
+}
+
+html.dark body .mindmap-v-tree li > span[data-level="4"],
+html.dark body .mindmap-v-tree > ul > li > ul > li > ul > li > ul > li > span { 
+    background-color: #1f2937 !important; color: #f3f4f6 !important; border-color: #6b7280 !important; 
+}
+
+html.dark body .mindmap-v-tree li > span[data-level="5"],
+html.dark body .mindmap-v-tree > ul > li > ul > li > ul > li > ul > li > ul > li > span { 
+    background-color: #7c2d12 !important; color: #ffedd5 !important; border-color: #c2410c !important; 
+}
+
+html.dark body .mindmap-v-tree ul > li::before, 
+html.dark body .mindmap-v-tree ul > li::after { background-color: #4b5563; }
+
+/* --- الهيدر --- */
+.content-container {
+    border: 1px solid var(--hr-color); border-radius: 12px; background-color: var(--card-bg); box-shadow: none; overflow: hidden; margin-bottom: 1rem;
+}
+.accordion-button {
+    width: 100%; background-color: transparent; padding: 1rem; border: none; text-align: right; display: flex; align-items: center; color: inherit;
+}

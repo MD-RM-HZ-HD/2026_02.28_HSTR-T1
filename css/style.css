@@ -1,0 +1,30 @@
+/* ==========================================================================
+   MAIN STYLESHEET (Manifest)
+   Updated: 29 Nov 2025
+   Description: Imports all modular partials in the correct order.
+   ========================================================================== */
+
+/* 1. Base (المتغيرات وأساسيات التصفير) */
+/* يجب أن تكون في البداية لتتعرف باقي الملفات على المتغيرات */
+@import url('base/variables.css');
+@import url('base/reset.css');
+
+/* 2. Layout (الهيكل العام للصفحة) */
+@import url('layout/containers.css');
+@import url('layout/header.css');
+/* @import url('layout/footer.css');  <-- فعل هذا السطر إذا أنشأت ملفاً للفوتر */
+
+/* 3. Components (العناصر المستقلة) */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/quiz-ui.css');
+@import url('components/accordion.css');
+
+/* 4. Pages (تنسيقات الصفحات الخاصة) */
+@import url('pages/lesson.css');
+@import url('pages/bio.css');
+@import url('pages/mindmap.css');
+
+/* 5. Responsive (تعديلات الموبايل الإلزامية) */
+/* يجب أن يكون هذا آخر ملف ليقوم بالتعديل على ما قبله */
+@import url('responsive/mobile.css');

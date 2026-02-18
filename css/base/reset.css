@@ -1,0 +1,46 @@
+/* === 2. RESET & BASE STYLES === */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--main-gradient);
+    color: var(--bs-body-color); /* استخدام متغير بوتستراب أو الخاص بك */
+    font-family: var(--font-tajawal); 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.76;
+    transition: background .25s ease, color .25s ease;
+    padding: 0.75rem;
+}
+
+/* تعديل الوضع الليلي للخلفية */
+html.dark body {
+    background: var(--bg-solid);
+    color: var(--text-main);
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 2rem;
+    }
+}
+
+/* === MOBILE BOTTOM NAV SPACING === */
+@media (max-width: 767px) {
+    body {
+        /* Add padding equal to Nav Height (70px) + Buffer (10px) */
+        padding-bottom: 80px !important; 
+    }
+}

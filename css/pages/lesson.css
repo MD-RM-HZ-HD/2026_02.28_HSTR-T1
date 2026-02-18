@@ -1,0 +1,247 @@
+/* === 8. LESSON PAGE TOOLS & CONTENT === */
+
+.page-tools-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid var(--hr-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.page-tools-card > .toolbar {
+    flex-grow: 0;
+}
+.page-tools-card > .audio-player-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+.page-tools-card > .toolbar.page-tools {
+    min-width: 220px;
+    justify-content: flex-end;
+}
+.page-tools-card > .toolbar.audio-tools {
+    min-width: 220px;
+    justify-content: flex-start;
+}
+
+/* جدول المحتويات الجانبي (TOC) */
+nav.toc {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--card-bg);
+    z-index: 1090; /* أعلى من Bootstrap Modal أحياناً */
+    border: 1px solid var(--hr-color);
+    padding: 12px;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+    color: inherit;
+}
+nav.toc.open {
+    transform: translateX(0);
+}
+nav.toc h3 {
+    margin: 8px 0 8px 0;
+    font-size: 0.875rem;
+    color: var(--accent-dark);
+    cursor: pointer;
+    user-select: none;
+}
+nav.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav.toc li {
+    margin: 8px 0;
+}
+nav.toc a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+nav.toc a:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--accent-dark);
+}
+nav.toc a.active,
+nav.toc a.scroll-active {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--accent-dark) !important;
+    font-weight: 900;
+}
+html.dark body nav.toc a:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+html.dark body nav.toc a.active,
+html.dark body nav.toc a.scroll-active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.main-lesson {
+    position: relative;
+    margin-bottom: 6px;
+}
+.main-link {
+    font-weight: bold;
+    color: var(--accent-dark);
+}
+.main-link .mini-icon {
+    display: none;
+}
+.sub-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.main-lesson.expanded .sub-links {
+    max-height: 500px;
+}
+.sub-links li {
+    margin: 4px 0 4px 16px;
+}
+.sub-links a {
+    font-weight: normal;
+    color: inherit;
+}
+
+/* المقال والمحتوى */
+article.content {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--hr-color);
+    padding: 20px 22px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+    color: inherit;
+    margin-bottom: 2rem;
+}
+article.content h2.section {
+    font-size: 1.25rem;
+    margin: 6px 0 14px 0;
+    padding-right: 10px;
+    border-right: 6px solid var(--accent);
+    display: inline-block;
+    color: var(--accent-dark);
+}
+article.content h3.sub {
+    font-size: 1.125rem;
+    margin: 10px 0 8px 0;
+    color: var(--accent-dark);
+}
+article.content p {
+    margin: 0 0 12px 0;
+    text-align: justify;
+    font-size: 1.04rem;
+}
+article.content hr.sep {
+    border: 0;
+    height: 1px;
+    background: var(--hr-color);
+    margin: 18px 0;
+    opacity: 0.5;
+}
+article.content .qa {
+    background: linear-gradient(180deg, rgba(17, 100, 102, 0.03), transparent);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px 0;
+    border-right: 4px solid var(--accent);
+}
+html.dark body article.content .qa {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+}
+article.content .qa .q {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+article.content .qa .a {
+    margin: 0;
+}
+article.content ol,
+article.content ul {
+    margin-right: 18px;
+    margin-bottom: 12px;
+}
+article.content li {
+    margin-bottom: 8px;
+    text-align: justify;
+}
+
+/* القارئ وتحديد النصوص */
+.reading-highlight {
+    background-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    animation: none !important;
+}
+/* تعطيل التأثيرات عند التمرير على نصوص المقال */
+article.content h2:hover,
+article.content h3:hover,
+article.content p:hover,
+article.content .q:hover,
+article.content .a:hover,
+article.content li:hover {
+    background-color: transparent !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+
+@media (max-width: 767px) {
+    /* Stack tools vertically for narrow 375px screens */
+    .page-tools-card {
+        flex-direction: column !important;
+        align-items: stretch !important; /* Stretch to fill width */
+        gap: 12px !important;
+        padding: 12px !important;
+    }
+
+    /* Ensure toolbars take full width and center content */
+    .page-tools-card > .toolbar,
+    .page-tools-card > .toolbar.page-tools,
+    .page-tools-card > .toolbar.audio-tools {
+        width: 100% !important;
+        justify-content: center !important;
+        min-width: 0 !important; /* Prevent overflow */
+        flex-wrap: wrap !important;
+    }
+
+    /* Fix Audio Player width to prevent horizontal scroll */
+    .page-tools-card > .audio-player-wrapper {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* Force audio element to fit */
+    .page-tools-card audio,
+    #lessonAudio {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}

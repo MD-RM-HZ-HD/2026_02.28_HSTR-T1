@@ -1,0 +1,82 @@
+/* === 3. LAYOUT CONTAINERS === */
+
+/* حاوية العرض الرئيسية - بديل لـ container */
+.main-width-container {
+    max-width: 900px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;  /* Override Bootstrap gutter if mixed */
+    padding-right: 0;
+}
+
+/* بطاقة العنوان العريضة */
+.page-title-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px 22px;
+    border: 1px solid var(--hr-color);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    margin-bottom: 12px;
+    color: inherit;
+    width: 100%;
+    position: relative;
+}
+
+.page-title-card h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* الحاوية الرئيسية للمحتوى */
+.container-main {
+    background-color: var(--card-bg);
+    color: inherit;
+    border: 1px solid var(--hr-color);
+    border-radius: 16px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 0.81rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .container-main {
+        padding: 0.5rem;
+    }
+}
+
+/* === MOBILE APP FRAME ENFORCEMENT === */
+@media (max-width: 767px) {
+    /* Force the main wrapper to mimic a mobile screen width */
+    .main-width-container {
+        max-width: 375px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    /* Ensure internal cards fit perfectly inside the 375px frame */
+    .container-main,
+    .page-title-card,
+    article.content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 0 !important; /* Square edges look better on full mobile width */
+        border-left: none !important;
+        border-right: none !important;
+        box-shadow: none !important; /* Cleaner look for mobile */
+    }
+    
+    /* Adjust padding for content to be readable */
+    .container-main {
+        padding: 1rem !important;
+    }
+}

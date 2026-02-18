@@ -1,0 +1,68 @@
+/* === 6. NAVIGATION & MENUS === */
+
+/* الروابط العلوية */
+.nav-link-desktop {
+    padding: 0.5rem 0.75rem; 
+    font-size: 0.875rem;    
+    font-weight: 500;        
+    color: #ffffff !important;          
+    border-radius: 0.5rem;   
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+}
+
+.nav-link-desktop:hover {
+    background-color: rgba(0, 0, 0, 0.25); 
+}
+
+/* القائمة المنسدلة في الموبايل */
+.mobile-dropdown {
+    background: var(--card-bg); /* استخدام متغير البطاقة */
+    color: #111;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 200px;
+    overflow: hidden;
+}
+
+.mobile-dropdown a {
+    display: block;          
+    padding: 0.75rem 1rem;   
+    font-weight: bold;       
+    color: inherit;            
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.mobile-dropdown a:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+}
+
+/* أدوات الناف بار (الأزرار الصغيرة) */
+.nav-tools-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem; 
+}
+
+.nav-tool-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-size: 0.875rem; 
+    line-height: 1.25rem; 
+}
+.nav-tool-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}

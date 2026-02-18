@@ -1,0 +1,335 @@
+/* === 5. QUIZ UI COMPONENTS === */
+
+/* تعديل ليشمل الاسم المستخدم في ملفات HTML */
+.progress-bar-container,
+.progress-bar {
+    background-color: #e2e8f0 !important;
+    border-radius: 8px;
+    height: 10px !important;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--color-success) 0%, var(--color-success-dark) 100%) !important;
+    height: 100%;
+    transition: width 0.5s ease;
+    border-radius: 8px;
+    width: 0%;
+    display: block;
+}
+
+/* صناديق التغذية الراجعة (Feedback) */
+.feedback-box {
+    border-radius: 10px;
+    padding: 1rem;
+    animation: slideIn 0.3s ease;
+    border: 2px solid;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.feedback-correct {
+    background-color: var(--color-success-bg);
+    border-color: var(--color-success);
+    color: var(--color-success-text);
+}
+
+.feedback-incorrect {
+    background-color: var(--color-danger-bg);
+    border-color: var(--color-danger);
+    color: var(--color-danger-text);
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* رقم السؤال */
+.question-number {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-warning) 0%, var(--color-warning-dark) 100%);
+    color: white;
+    padding: 0.4rem 0.875rem;
+    border-radius: 16px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    height: 35px;
+    line-height: 1.2;
+}
+
+.question-text {
+    font-size: 1.04rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+/* زر السؤال التالي */
+#next-question-btn {
+    text-align: center !important;
+    font-size: 0.9rem !important;
+    background-image: linear-gradient(135deg, var(--color-warning) 0%, var(--color-warning-dark) 100%) !important;
+    color: white !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease;
+    border: none;
+    padding: 0.875rem 1.25rem;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+}
+#next-question-btn:not(:disabled) {
+    font-size: 1rem !important;
+}
+#next-question-btn:disabled {
+    background-image: none !important;
+    background-color: var(--color-disabled-bg) !important;
+    color: var(--color-disabled-text) !important;
+    opacity: 1 !important;
+    cursor: not-allowed !important;
+}
+
+/* أزرار الإجابات (الخيارات) - تم إزالة التكبير */
+.btn-answer {
+    padding: 0.875rem 1.25rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    min-height: 48px;
+    touch-action: manipulation;
+    background-color: var(--color-disabled-bg);
+    color: #1f2937;
+    text-align: right;
+    position: relative; 
+    overflow: hidden; 
+    width: 100%;
+    display: block;
+    margin-bottom: 0.75rem;
+    /* تثبيت الحركة */
+    transform: none !important;
+    transition: background-color 0.2s ease;
+}
+.btn-answer:hover:not(:disabled) {
+    transform: none !important; /* منع التكبير */
+    background-color: #94a3b8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.btn-answer:active:not(:disabled) {
+    transform: none !important;
+    background-color: #cbd5e1;
+}
+.btn-answer:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* === 10. COMPARISON & QUIZ TYPES === */
+
+/* بطاقة المقارنة */
+.comparison-card {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent-dark);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.comparison-card h3 {
+    color: var(--accent-dark);
+    margin-top: 0;
+}
+.reveal-btn {
+    transition: background-color 0.3s;
+}
+#completion-message {
+    color: inherit;
+}
+#comparison-status {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Helper Classes */
+.bg-red-50 { background-color: rgba(239, 68, 68, 0.1); }
+.bg-green-50 { background-color: rgba(16, 185, 129, 0.1); }
+.bg-blue-100 { background-color: rgba(59, 130, 246, 0.1); }
+.hover\:bg-orange-200:hover { background-color: rgba(249, 115, 22, 0.3) !important; }
+.border-orange-400 { border-color: rgba(249, 115, 22, 0.8) !important; }
+.text-orange-800 { color: #9a3412 !important; }
+
+/* Quiz: Fill in the Blank */
+.question-card.fill-blank {
+    background: var(--card-bg);
+    border: 2px solid #d1d5db; 
+    border-radius: 12px;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.5rem 1.5rem 1.5rem; 
+    margin-bottom: 10px; 
+}
+.question-title-highlight {
+    background-color: transparent; 
+    color: inherit; 
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+.question-card.fill-blank button {
+    background-color: var(--color-disabled-bg);
+    color: #1f2937;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+.question-card.fill-blank button:hover {
+    background-color: #94a3b8;
+}
+
+.question-card.fill-blank input {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d9ebe5; 
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    margin-bottom: 10px; 
+    transition: all 0.3s ease;
+}
+.question-card.fill-blank input.correct {
+    background-color: #d1fae5 !important;
+    border-color: #10b981 !important;
+    color: #064e3b !important;
+}
+.question-card.fill-blank input.incorrect-first {
+    background-color: #fef3c7 !important;
+    border-color: #f59e0b !important;
+    color: #78350f !important;
+}
+.question-card.fill-blank input.incorrect-second {
+    background-color: #fee2e2 !important;
+    border-color: #ef4444 !important;
+    color: #7f1d1d !important;
+}
+
+/* Quiz: Multiple Choice (Standard) - تم إزالة القفز */
+.option-button {
+    cursor: pointer;
+    text-align: right;
+    line-height: 1.6;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: white;
+    color: black;
+    border: 1px solid var(--hr-color);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    width: 100%;
+    display: block;
+    margin-bottom: 0.5rem;
+    /* تثبيت الحركة */
+    transform: none !important;
+    transition: background-color 0.2s ease;
+}
+.option-button:hover:not([disabled]) {
+    transform: none !important; /* ثابت */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #e5e7eb;
+}
+.option-button:active {
+    transform: none !important;
+}
+.option-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+.option-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.85;
+    transform: none;
+}
+.option-button.correct-answer {
+    background-color: var(--color-success) !important;
+    color: white !important;
+    border-color: var(--color-success-dark) !important;
+}
+.option-button.incorrect-selection {
+    background-color: var(--color-danger) !important;
+    color: white !important;
+    border-color: var(--color-danger-dark) !important;
+}
+.disabled-option {
+    opacity: 0.8;
+    cursor: default !important;
+}
+
+.quiz-card, #pagination-controls, #end-of-quiz {
+    background-color: var(--card-bg);
+    color: inherit;
+    border: 1px solid var(--hr-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+[id^="rationale-"] {
+    background-color: var(--color-info-bg);
+    color: var(--color-info-text);
+    border: 1px solid var(--color-info-text);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Quiz: Inline MCQ */
+.question-card.mc-inline {
+    background: var(--card-bg);
+    border: 2px solid #d1d5db; 
+    border-radius: 12px;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.5rem 1.5rem 1.5rem; 
+}
+.btn-correct {
+    background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.4);
+}
+.btn-incorrect {
+    background: linear-gradient(135deg, var(--color-danger) 0%, var(--color-danger-dark) 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 6px rgba(239, 68, 68, 0.4);
+}
+
+/* Quiz: True/False */
+.question-card.true-false {
+    background: var(--card-bg); 
+    border: 2px solid #d1d5db; 
+    border-radius: 12px;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.5rem 1.5rem 1.5rem; 
+}
+.btn-true {
+    background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%);
+    color: white;
+}
+.btn-false {
+    background: linear-gradient(135deg, var(--color-danger) 0%, var(--color-danger-dark) 100%);
+    color: white;
+}

@@ -2,85 +2,25 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Lessons PDF Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons PDF Viewer - Pro</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     
     <style>
-        /* تنسيقات الديسكتوب (iframe) */
-        .pdf-frame {
+        /* ستايل إطار العارض الاحترافي */
+        .pdf-frame-pro {
             width: 100%;
-            height: 85vh;
+            height: 85vh; /* ارتفاع ممتاز للموبايل والديسكتوب */
             border: none;
             border-radius: 8px;
-            background-color: #f3f4f6;
-        }
-
-        /* تنسيقات الموبايل (Canvas) */
-        .pdf-canvas-container {
-            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             background-color: #525659;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-            border-radius: 0 0 8px 8px;
-            overflow-x: auto;
-            min-height: 300px;
         }
-        
-        canvas {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-            max-width: 100%;
-            height: auto !important;
-            background-color: white;
-        }
-
-        .pdf-controls {
-            background: #374151;
-            color: white;
-            padding: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px 8px 0 0;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .control-btn {
-            background: #4b5563;
-            border: none;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .control-btn:hover { background: #6b7280; }
-        
-        .fallback-tools {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-        .fallback-btn {
-            font-size: 12px;
-            padding: 8px 16px;
-            border-radius: 6px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .btn-download-sm { background-color: #10b981; }
-        .btn-open-sm { background-color: #3b82f6; }
     </style>
 </head>
 
@@ -91,32 +31,11 @@
       
     <div class="top-row" x-data="{ 
         activeLesson: null, 
-        isMobile: window.innerWidth < 768, 
         
-        init() {
-            window.addEventListener('resize', () => {
-                this.isMobile = window.innerWidth < 768;
-            });
+        toggle(id) { 
+            this.activeLesson = (this.activeLesson === id ? null : id);
         },
-
-        toggle(id, pdfUrl) { 
-            if (this.activeLesson === id) {
-                this.activeLesson = null;
-                return;
-            }
-            this.activeLesson = id;
-            
-            // تشغيل السكربت فقط إذا كنا على وضع الموبايل
-            if (this.isMobile) {
-                setTimeout(() => {
-                    if (typeof window.loadLessonPdf === 'function') {
-                        window.loadLessonPdf(id, pdfUrl);
-                    } else {
-                        console.error('ملف السكربت غير متصل بشكل صحيح.');
-                    }
-                }, 300);
-            }
-        },
+        
         lessons: [
             'الدرس ١ - المهدوية في التاريخ الإسلامي والإنساني',
             'الدرس ٢ - الإمام المهدي عليه السلام في ظل أبيه (١)',
@@ -135,17 +54,24 @@
             'الدرس ١٥ - الإمام المهدي في الغيبة الصغرى (٢)',
             'الدرس ١٦ - من تراث الإمام المهدي في الغيبة الصغرى (١)'
         ],
-        getPdfPath(index) {
+        
+        // دالة تقوم بتوليد مسار العارض مدمجاً معه مسار الدرس
+        getViewerUrl(index) {
             let num = index + 1;
             let formattedNum = num < 10 ? '0' + num : num;
-            return '../pdf/' + formattedNum + '.pdf';
+            
+            // مسار ملف الدرس
+            let pdfFile = `../../pdf/${formattedNum}.pdf`;
+            
+            // استدعاء واجهة PDF.js الجاهزة وتمرير الملف إليها
+            return `../pdfjs/web/viewer.html?file=${encodeURIComponent(pdfFile)}`;
         }
     }">
         <article class="content" :style="{ 'fontSize': (typeof fontSize !== 'undefined' ? fontSize : 16) + 'px' }">
             
             <template x-for="(lesson, index) in lessons" :key="index">
                 <div class="content-container mb-4">
-                    <button @click="toggle(index + 1, getPdfPath(index))" class="accordion-button w-full text-right py-4">
+                    <button @click="toggle(index + 1)" class="accordion-button w-full text-right py-4">
                         <div class="accordion-title-group flex justify-between items-center w-full">
                             <h2 class="section m-0 font-bold leading-tight" x-text="lesson"></h2>
                             <span class="icon-toggle font-bold text-2xl mr-4" x-text="activeLesson === (index + 1) ? '-' : '+'"></span>
@@ -154,28 +80,8 @@
                     
                     <div x-show="activeLesson === (index + 1)" x-transition class="accordion-panel mt-4">
                         
-                        <div class="fallback-tools">
-                             <a :href="getPdfPath(index) + '#view=FitH'" target="_blank" class="fallback-btn btn-open-sm">فتح كـ PDF</a>
-                             <a :href="getPdfPath(index)" download class="fallback-btn btn-download-sm">تحميل</a>
-                        </div>
-
-                        <template x-if="!isMobile">
-                            <iframe :src="getPdfPath(index) + '#view=FitH'" class="pdf-frame"></iframe>
-                        </template>
-
-                        <template x-if="isMobile">
-                            <div class="custom-pdf-viewer border rounded-lg overflow-hidden shadow-sm">
-                                <div class="pdf-controls" dir="ltr">
-                                    <button class="control-btn" @click="window.changePage(index + 1, 'prev')">Previous</button>
-                                    <span class="page-info text-white">
-                                        Page <span :id="'page-num-' + (index + 1)">--</span> of <span :id="'page-count-' + (index + 1)">--</span>
-                                    </span>
-                                    <button class="control-btn" @click="window.changePage(index + 1, 'next')">Next</button>
-                                </div>
-                                <div class="pdf-canvas-container">
-                                    <canvas :id="'pdf-canvas-' + (index + 1)"></canvas>
-                                </div>
-                            </div>
+                        <template x-if="activeLesson === (index + 1)">
+                            <iframe :src="getViewerUrl(index)" class="pdf-frame-pro" allowfullscreen></iframe>
                         </template>
 
                     </div>
@@ -188,9 +94,6 @@
 
 <script src="../js/nav-loader.js"></script>
 <script src="../js/page-init.js"></script> 
-
-<script src="../js/script_pdf-manager.js"></script>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof loadNavbar === 'function') {

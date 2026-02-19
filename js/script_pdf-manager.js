@@ -1,147 +1,85 @@
-// Script/pdf-manager.js
+// مسار الملف: ../js/script_pdf-manager.js
 
-// تحديد موقع ملف الـ Worker الخاص بالمكتبة (ضروري جداً للعمل)
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-class PdfViewer {
-    constructor(url, canvasId, pageNumSpanId, pageCountSpanId) {
-        this.url = url;
-        this.canvas = document.getElementById(canvasId);
-        this.ctx = this.canvas.getContext('2d');
-        this.pageNumSpan = document.getElementById(pageNumSpanId);
-        this.pageCountSpan = document.getElementById(pageCountSpanId);
-        
-        this.pdfDoc = null;
-        this.pageNum = 1;
-        this.pageRendering = false;
-        this.pageNumPending = null;
-        this.scale = 1.5; // التكبير الافتراضي
-        this.fitToWidth = true; // تفعيل العرض بعرض الشاشة تلقائياً
-    }
-
-    // تهيئة وتحميل الملف
-    async init() {
-        try {
-            this.pdfDoc = await pdfjsLib.getDocument(this.url).promise;
-            if(this.pageCountSpan) this.pageCountSpan.textContent = this.pdfDoc.numPages;
-            this.renderPage(this.pageNum);
-        } catch (error) {
-            console.error('Error loading PDF:', error);
-            // يمكنك هنا إظهار رسالة خطأ للمستخدم في حال فشل التحميل
-            this.ctx.font = '20px Tajawal';
-            this.ctx.fillText('عذراً، حدث خطأ في تحميل الملف', 10, 50);
-        }
-    }
-
-    // دالة رسم الصفحة
-    async renderPage(num) {
-        this.pageRendering = true;
-        
-        // جلب الصفحة من الملف
-        const page = await this.pdfDoc.getPage(num);
-
-        // حساب الأبعاد المناسبة للشاشة
-        let viewport = page.getViewport({ scale: this.scale });
-        
-        // كود ذكي لجعل العرض 100% من عرض الشاشة (Mobile Responsive)
-        if (this.fitToWidth) {
-            const containerWidth = this.canvas.parentElement.clientWidth;
-            // نطرح قليلاً للهوامش
-            const desiredScale = (containerWidth - 20) / page.getViewport({ scale: 1 }).width;
-            viewport = page.getViewport({ scale: desiredScale });
-            this.scale = desiredScale; // تحديث المقياس الحالي
-        }
-
-        // ضبط أبعاد اللوحة (Canvas)
-        this.canvas.height = viewport.height;
-        this.canvas.width = viewport.width;
-
-        // إعداد عملية الرسم
-        const renderContext = {
-            canvasContext: this.ctx,
-            viewport: viewport
-        };
-        
-        const renderTask = page.render(renderContext);
-
-        // انتظار انتهاء الرسم
-        try {
-            await renderTask.promise;
-            this.pageRendering = false;
-            
-            // تحديث رقم الصفحة في الواجهة
-            if(this.pageNumSpan) this.pageNumSpan.textContent = num;
-
-            // إذا كان هناك صفحة أخرى بانتظار الرسم (بسبب النقر السريع)
-            if (this.pageNumPending !== null) {
-                this.renderPage(this.pageNumPending);
-                this.pageNumPending = null;
-            }
-        } catch (e) {
-            // تجاهل أخطاء الإلغاء
-        }
-    }
-
-    // إدارة طلبات التصيير المتتالية
-    queueRenderPage(num) {
-        if (this.pageRendering) {
-            this.pageNumPending = num;
-        } else {
-            this.renderPage(num);
-        }
-    }
-
-    // الصفحة السابقة
-    onPrevPage() {
-        if (this.pageNum <= 1) return;
-        this.pageNum--;
-        this.queueRenderPage(this.pageNum);
-    }
-
-    // الصفحة التالية
-    onNextPage() {
-        if (this.pageNum >= this.pdfDoc.numPages) return;
-        this.pageNum++;
-        this.queueRenderPage(this.pageNum);
-    }
-    
-    // إعادة ضبط الحجم عند تدوير الشاشة
-    resize() {
-        if(this.pdfDoc) {
-            this.renderPage(this.pageNum);
-        }
-    }
-}
-
-// مصفوفة لتخزين الكائنات النشطة
 window.pdfInstances = {};
 
-// دالة عامة لاستدعائها من HTML
-window.loadLessonPdf = function(index, url) {
-    // إذا لم يتم تحميل هذا الدرس من قبل
-    if (!window.pdfInstances[index]) {
-        const viewer = new PdfViewer(
-            url, 
-            `pdf-canvas-${index}`, 
-            `page-num-${index}`, 
-            `page-count-${index}`
-        );
-        viewer.init();
-        window.pdfInstances[index] = viewer;
+window.loadLessonPdf = async function(index, url) {
+    const canvas = document.getElementById(`pdf-canvas-${index}`);
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    // إعداد لوحة الرسم
+    canvas.width = 300;
+    canvas.height = 150;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#000000';
+    ctx.font = '16px Tajawal, Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('جاري تحميل الملف...', canvas.width / 2, canvas.height / 2);
+
+    // --- مفتاح الحل هنا ---
+    // تحويل المسار النسبي إلى مسار ويب مطلق وكامل ليفهمه السكربت بوضوح
+    const absoluteUrl = new URL(url, window.location.href).href;
+
+    try {
+        // نمرر المسار المطلق للمكتبة بدلاً من المسار النسبي
+        const loadingTask = pdfjsLib.getDocument(absoluteUrl);
+        const pdfDoc = await loadingTask.promise;
         
-        // إضافة مستمع لتغيير حجم الشاشة
-        window.addEventListener('resize', () => {
-             // استخدام Debounce لتقليل استهلاك المعالج
-            clearTimeout(window.resizeTimer);
-            window.resizeTimer = setTimeout(() => viewer.resize(), 200);
-        });
+        document.getElementById(`page-count-${index}`).textContent = pdfDoc.numPages;
+        
+        window.pdfInstances[index] = {
+            pdf: pdfDoc,
+            pageNum: 1,
+            render: async function() {
+                const page = await this.pdf.getPage(this.pageNum);
+                const containerWidth = canvas.parentElement.clientWidth;
+                const desiredScale = (containerWidth - 20) / page.getViewport({ scale: 1 }).width;
+                const viewport = page.getViewport({ scale: desiredScale });
+                
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                
+                await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+                document.getElementById(`page-num-${index}`).textContent = this.pageNum;
+            }
+        };
+        
+        window.pdfInstances[index].render();
+
+    } catch (error) {
+        console.error("PDF Error: ", error);
+        ctx.fillStyle = '#ffeaea';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#d32f2f';
+        ctx.font = 'bold 14px Arial';
+        ctx.fillText('❌ فشل تحميل الملف!', canvas.width / 2, 40);
+        
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Arial';
+        if (error.name === 'MissingPDFException') {
+            // إضافة المسار المطلق للرسالة للتأكد من أنه تمت قراءته بشكل صحيح
+            ctx.fillText('الملف غير موجود في:', canvas.width / 2, 70);
+            ctx.fillText(absoluteUrl, canvas.width / 2, 90);
+        } else if (error.message && error.message.includes('fetch')) {
+            ctx.fillText('يجب تشغيل المشروع عبر خادم محلي (Live Server)', canvas.width / 2, 70);
+        } else {
+            ctx.fillText('حدث خطأ غير معروف، يرجى فحص الـ Console', canvas.width / 2, 70);
+        }
     }
 };
 
 window.changePage = function(index, direction) {
-    const viewer = window.pdfInstances[index];
-    if (viewer) {
-        if (direction === 'next') viewer.onNextPage();
-        if (direction === 'prev') viewer.onPrevPage();
+    const instance = window.pdfInstances[index];
+    if (!instance) return;
+    
+    if (direction === 'next' && instance.pageNum < instance.pdf.numPages) {
+        instance.pageNum++;
+        instance.render();
+    } else if (direction === 'prev' && instance.pageNum > 1) {
+        instance.pageNum--;
+        instance.render();
     }
 };

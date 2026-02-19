@@ -6,259 +6,206 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Lessons PDF Viewer</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     
     <style>
-        /* تنسيقات إضافية لعارض الـ PDF */
+        /* تنسيقات الديسكتوب (iframe) */
         .pdf-frame {
             width: 100%;
-            height: 85vh; /* ارتفاع مناسب للشاشة */
+            height: 85vh;
             border: none;
             border-radius: 8px;
             background-color: #f3f4f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
+
+        /* تنسيقات الموبايل (السكربت - Canvas) */
+        .pdf-canvas-container {
+            width: 100%;
+            background-color: #525659;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            border-radius: 0 0 8px 8px;
+            overflow-x: auto;
+            min-height: 400px;
+        }
+        
+        canvas {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            max-width: 100%;
+            height: auto !important;
+        }
+
+        .pdf-controls {
+            background: #374151;
+            color: white;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+            font-family: sans-serif;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .control-btn {
+            background: #4b5563;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        
+        .control-btn:hover { background: #6b7280; }
+        .control-btn:active { background: #1f2937; }
+        
+        .page-info { 
+            font-weight: bold; 
+            font-family: 'Tajawal', sans-serif; 
+            font-size: 14px;
+        }
+        
+        /* أزرار التحميل الإضافية (مفيدة للديسكتوب والموبايل) */
+        .fallback-tools {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .fallback-btn {
+            font-size: 12px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .btn-download-sm { background-color: #10b981; }
+        .btn-open-sm { background-color: #3b82f6; }
     </style>
 </head>
 
 <body class="min-h-screen" x-data="pageSettings" :class="{ 'dark': darkMode }"> 
 
-<div class="main-width-container pt-10"> 
+<div class="main-width-container pt-10 px-4 md:px-0"> 
     <div id="navbar-placeholder"></div>
       
     <div class="top-row" x-data="{ 
         activeLesson: null, 
-        toggle(id) { 
-            this.activeLesson = (this.activeLesson === id ? null : id);
+        isMobile: window.innerWidth < 768, 
+        
+        // تحديث حالة الموبايل/الديسكتوب عند تصغير أو تكبير النافذة
+        init() {
+            window.addEventListener('resize', () => {
+                this.isMobile = window.innerWidth < 768;
+            });
+        },
+
+        toggle(id, pdfUrl) { 
+            if (this.activeLesson === id) {
+                this.activeLesson = null;
+                return;
+            }
+            
+            this.activeLesson = id;
+            
+            // تشغيل السكربت (PDF.js) فقط إذا كنا على الموبايل
+            if (this.isMobile) {
+                setTimeout(() => {
+                    if (typeof window.loadLessonPdf === 'function') {
+                        window.loadLessonPdf(id, pdfUrl);
+                    }
+                }, 300);
+            }
+        },
+        lessons: [
+            'الدرس ١ - المهدوية في التاريخ الإسلامي والإنساني',
+            'الدرس ٢ - الإمام المهدي عليه السلام في ظل أبيه (١)',
+            'الدرس ٣ - الإمام المهدي عليه السلام في ظل أبيه (٢)',
+            'الدرس ٤ - الإمام المهدي عليه السلام في ظل أبيه (٣)',
+            'الدرس ٥ - عصر الإمام المهدي عليه السلام',
+            'الدرس ٦ - الإمام المهدي عليه السلام يتسلم زمام الأمر',
+            'الدرس ٧ - الإمام المهدي عليه السلام والتصدي لمهام الإمامة',
+            'الدرس ٨ - تمهيدات الرسول (ص) والأئمة للغيبة الصغرى',
+            'الدرس ٩ - الغيبة الصغرى والارتباط بالإمام المهدي عليه السلام',
+            'الدرس ١٠ - السفارة: الخصائص والمضمون',
+            'الدرس ١١ - السفارات المزورة',
+            'الدرس ١٢ - تفاصيل أعمال السفراء (١)',
+            'الدرس ١٣ - تفاصيل أعمال السفراء (٢)',
+            'الدرس ١٤ - الإمام المهدي عليه السلام في الغيبة الصغرى (١)',
+            'الدرس ١٥ - الإمام المهدي في الغيبة الصغرى (٢)',
+            'الدرس ١٦ - من تراث الإمام المهدي في الغيبة الصغرى (١)'
+        ],
+        getPdfPath(index) {
+            let num = index + 1;
+            let formattedNum = num < 10 ? '0' + num : num;
+            return '../pdf/' + formattedNum + '.pdf';
         }
     }">
-        <article class="content" :style="{ 'fontSize': fontSize + 'px' }">
+        <article class="content" :style="{ 'fontSize': (typeof fontSize !== 'undefined' ? fontSize : 16) + 'px' }">
+            
+            <template x-for="(lesson, index) in lessons" :key="index">
+                <div class="content-container mb-4">
+                    <button @click="toggle(index + 1, getPdfPath(index))" class="accordion-button w-full text-right py-4">
+                        <div class="accordion-title-group flex justify-between items-center w-full">
+                            <h2 class="section m-0 font-bold leading-tight" :style="{ 'fontSize': (typeof fontSize !== 'undefined' ? fontSize : 18) + 'px' }" x-text="lesson"></h2>
+                            <span class="icon-toggle font-bold text-2xl mr-4" x-text="activeLesson === (index + 1) ? '-' : '+'"></span>
+                        </div>
+                    </button>
+                    
+                    <div x-show="activeLesson === (index + 1)" x-transition class="accordion-panel mt-4">
+                        
+                        <div class="fallback-tools">
+                             <a :href="getPdfPath(index) + '#view=FitH'" target="_blank" class="fallback-btn btn-open-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                فتح كـ PDF
+                             </a>
+                             <a :href="getPdfPath(index)" download class="fallback-btn btn-download-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                تحميل
+                             </a>
+                        </div>
 
-            <div class="content-container">
-                <button @click="toggle(1)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١ - المهدوية في التاريخ الإسلامي والإنساني</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 1 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 1" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 1">
-                        <iframe src="../pdf/01.pdf" class="pdf-frame" title="Lesson 1 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
+                        <template x-if="!isMobile">
+                            <iframe :src="getPdfPath(index) + '#view=FitH'" class="pdf-frame" :title="'Lesson ' + (index + 1) + ' PDF'"></iframe>
+                        </template>
 
-            <div class="content-container">
-                <button @click="toggle(2)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٢ - الإمام المهدي عليه السلام في ظل أبيه (١)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 2 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 2" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 2">
-                        <iframe src="../pdf/02.pdf" class="pdf-frame" title="Lesson 2 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
+                        <template x-if="isMobile">
+                            <div class="custom-pdf-viewer border rounded-lg overflow-hidden shadow-sm">
+                                <div class="pdf-controls" dir="ltr">
+                                    <button class="control-btn" @click="window.changePage(index + 1, 'prev')">Previous</button>
+                                    <span class="page-info">
+                                        Page <span :id="'page-num-' + (index + 1)">--</span> of <span :id="'page-count-' + (index + 1)">--</span>
+                                    </span>
+                                    <button class="control-btn" @click="window.changePage(index + 1, 'next')">Next</button>
+                                </div>
+                                <div class="pdf-canvas-container">
+                                    <canvas :id="'pdf-canvas-' + (index + 1)"></canvas>
+                                </div>
+                            </div>
+                        </template>
 
-            <div class="content-container">
-                <button @click="toggle(3)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٣ - الإمام المهدي عليه السلام في ظل أبيه (٢)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 3 ? '-' : '+'"></span>
                     </div>
-                </button>
-                <div x-show="activeLesson === 3" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 3">
-                        <iframe src="../pdf/03.pdf" class="pdf-frame" title="Lesson 3 PDF"></iframe>
-                    </template>
                 </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(4)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٤ - الإمام المهدي عليه السلام في ظل أبيه (٣)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 4 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 4" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 4">
-                        <iframe src="../pdf/04.pdf" class="pdf-frame" title="Lesson 4 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(5)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٥ - عصر الإمام المهدي عليه السلام</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 5 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 5" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 5">
-                        <iframe src="../pdf/05.pdf" class="pdf-frame" title="Lesson 5 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(6)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٦ - الإمام المهدي عليه السلام يتسلم زمام الأمر</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 6 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 6" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 6">
-                        <iframe src="../pdf/06.pdf" class="pdf-frame" title="Lesson 6 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(7)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٧ - الإمام المهدي عليه السلام والتصدي لمهام الإمامة</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 7 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 7" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 7">
-                        <iframe src="../pdf/07.pdf" class="pdf-frame" title="Lesson 7 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(8)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٨ - تمهيدات الرسول (ص) والأئمة للغيبة الصغرى</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 8 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 8" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 8">
-                        <iframe src="../pdf/08.pdf" class="pdf-frame" title="Lesson 8 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(9)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ٩ - الغيبة الصغرى والارتباط بالإمام المهدي عليه السلام</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 9 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 9" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 9">
-                        <iframe src="../pdf/09.pdf" class="pdf-frame" title="Lesson 9 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(10)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٠ - السفارة: الخصائص والمضمون</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 10 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 10" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 10">
-                        <iframe src="../pdf/10.pdf" class="pdf-frame" title="Lesson 10 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(11)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١١ - السفارات المزورة</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 11 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 11" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 11">
-                        <iframe src="../pdf/11.pdf" class="pdf-frame" title="Lesson 11 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(12)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٢ - تفاصيل أعمال السفراء (١)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 12 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 12" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 12">
-                        <iframe src="../pdf/12.pdf" class="pdf-frame" title="Lesson 12 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(13)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٣ - تفاصيل أعمال السفراء (٢)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 13 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 13" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 13">
-                        <iframe src="../pdf/13.pdf" class="pdf-frame" title="Lesson 13 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(14)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٤ - الإمام المهدي عليه السلام في الغيبة الصغرى (١)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 14 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 14" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 14">
-                        <iframe src="../pdf/14.pdf" class="pdf-frame" title="Lesson 14 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(15)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٥ - الإمام المهدي في الغيبة الصغرى (٢)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 15 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 15" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 15">
-                        <iframe src="../pdf/15.pdf" class="pdf-frame" title="Lesson 15 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
-
-            <div class="content-container">
-                <button @click="toggle(16)" class="accordion-button">
-                    <div class="accordion-title-group">
-                        <h2 class="section" :style="{ 'fontSize': fontSize + 'px' }">الدرس ١٦ - من تراث الإمام المهدي في الغيبة الصغرى (١)</h2>
-                        <span class="icon-toggle" x-text="activeLesson === 16 ? '-' : '+'"></span>
-                    </div>
-                </button>
-                <div x-show="activeLesson === 16" x-transition class="accordion-panel">
-                    <template x-if="activeLesson === 16">
-                        <iframe src="../pdf/16.pdf" class="pdf-frame" title="Lesson 16 PDF"></iframe>
-                    </template>
-                </div>
-            </div>
+            </template>
 
         </article>
     </div>
@@ -266,14 +213,12 @@
 
 <script src="../js/nav-loader.js"></script>
 <script src="../js/page-init.js"></script> 
+<script src="../Script/script_pdf-manager.js"></script> 
+
 <script>
-    // Initialize the Navbar
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof loadNavbar === 'function') {
-             loadNavbar({ 
-                pageType: 'sub', 
-                showTools: true 
-            });
+             loadNavbar({ pageType: 'sub', showTools: true });
         }
     });
 </script>

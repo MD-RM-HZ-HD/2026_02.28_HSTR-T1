@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Lessons PDF Viewer</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,10 +20,9 @@
             border: none;
             border-radius: 8px;
             background-color: #f3f4f6;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* تنسيقات الموبايل (السكربت - Canvas) */
+        /* تنسيقات الموبايل (Canvas) */
         .pdf-canvas-container {
             width: 100%;
             background-color: #525659;
@@ -34,13 +31,14 @@
             justify-content: center;
             border-radius: 0 0 8px 8px;
             overflow-x: auto;
-            min-height: 400px;
+            min-height: 300px;
         }
         
         canvas {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
             max-width: 100%;
             height: auto !important;
+            background-color: white;
         }
 
         .pdf-controls {
@@ -51,7 +49,6 @@
             justify-content: space-between;
             align-items: center;
             border-radius: 8px 8px 0 0;
-            font-family: sans-serif;
             flex-wrap: wrap;
             gap: 10px;
         }
@@ -65,27 +62,15 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: bold;
-            user-select: none;
-            transition: background 0.2s;
         }
-        
         .control-btn:hover { background: #6b7280; }
-        .control-btn:active { background: #1f2937; }
         
-        .page-info { 
-            font-weight: bold; 
-            font-family: 'Tajawal', sans-serif; 
-            font-size: 14px;
-        }
-        
-        /* أزرار التحميل الإضافية (مفيدة للديسكتوب والموبايل) */
         .fallback-tools {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
             margin-bottom: 10px;
         }
-        
         .fallback-btn {
             font-size: 12px;
             padding: 8px 16px;
@@ -93,11 +78,7 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
-        
         .btn-download-sm { background-color: #10b981; }
         .btn-open-sm { background-color: #3b82f6; }
     </style>
@@ -112,7 +93,6 @@
         activeLesson: null, 
         isMobile: window.innerWidth < 768, 
         
-        // تحديث حالة الموبايل/الديسكتوب عند تصغير أو تكبير النافذة
         init() {
             window.addEventListener('resize', () => {
                 this.isMobile = window.innerWidth < 768;
@@ -124,14 +104,15 @@
                 this.activeLesson = null;
                 return;
             }
-            
             this.activeLesson = id;
             
-            // تشغيل السكربت (PDF.js) فقط إذا كنا على الموبايل
+            // تشغيل السكربت فقط إذا كنا على وضع الموبايل
             if (this.isMobile) {
                 setTimeout(() => {
                     if (typeof window.loadLessonPdf === 'function') {
                         window.loadLessonPdf(id, pdfUrl);
+                    } else {
+                        console.error('ملف السكربت غير متصل بشكل صحيح.');
                     }
                 }, 300);
             }
@@ -166,7 +147,7 @@
                 <div class="content-container mb-4">
                     <button @click="toggle(index + 1, getPdfPath(index))" class="accordion-button w-full text-right py-4">
                         <div class="accordion-title-group flex justify-between items-center w-full">
-                            <h2 class="section m-0 font-bold leading-tight" :style="{ 'fontSize': (typeof fontSize !== 'undefined' ? fontSize : 18) + 'px' }" x-text="lesson"></h2>
+                            <h2 class="section m-0 font-bold leading-tight" x-text="lesson"></h2>
                             <span class="icon-toggle font-bold text-2xl mr-4" x-text="activeLesson === (index + 1) ? '-' : '+'"></span>
                         </div>
                     </button>
@@ -174,25 +155,19 @@
                     <div x-show="activeLesson === (index + 1)" x-transition class="accordion-panel mt-4">
                         
                         <div class="fallback-tools">
-                             <a :href="getPdfPath(index) + '#view=FitH'" target="_blank" class="fallback-btn btn-open-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                فتح كـ PDF
-                             </a>
-                             <a :href="getPdfPath(index)" download class="fallback-btn btn-download-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                تحميل
-                             </a>
+                             <a :href="getPdfPath(index) + '#view=FitH'" target="_blank" class="fallback-btn btn-open-sm">فتح كـ PDF</a>
+                             <a :href="getPdfPath(index)" download class="fallback-btn btn-download-sm">تحميل</a>
                         </div>
 
                         <template x-if="!isMobile">
-                            <iframe :src="getPdfPath(index) + '#view=FitH'" class="pdf-frame" :title="'Lesson ' + (index + 1) + ' PDF'"></iframe>
+                            <iframe :src="getPdfPath(index) + '#view=FitH'" class="pdf-frame"></iframe>
                         </template>
 
                         <template x-if="isMobile">
                             <div class="custom-pdf-viewer border rounded-lg overflow-hidden shadow-sm">
                                 <div class="pdf-controls" dir="ltr">
                                     <button class="control-btn" @click="window.changePage(index + 1, 'prev')">Previous</button>
-                                    <span class="page-info">
+                                    <span class="page-info text-white">
                                         Page <span :id="'page-num-' + (index + 1)">--</span> of <span :id="'page-count-' + (index + 1)">--</span>
                                     </span>
                                     <button class="control-btn" @click="window.changePage(index + 1, 'next')">Next</button>
@@ -213,7 +188,8 @@
 
 <script src="../js/nav-loader.js"></script>
 <script src="../js/page-init.js"></script> 
-<script src="../Script/script_pdf-manager.js"></script> 
+
+<script src="../js/script_pdf-manager.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

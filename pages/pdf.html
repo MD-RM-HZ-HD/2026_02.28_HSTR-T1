@@ -15,12 +15,40 @@
         /* ستايل إطار العارض الاحترافي */
         .pdf-frame-pro {
             width: 100%;
-            height: 85vh; /* ارتفاع ممتاز للموبايل والديسكتوب */
+            height: 85vh;
             border: none;
             border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             background-color: #525659;
         }
+
+        /* تنسيقات أزرار التحميل والفتح الخارجي */
+        .fallback-tools {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .fallback-btn {
+            font-size: 13px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+        
+        .fallback-btn:hover { transform: translateY(-2px); }
+        .btn-download-sm { background-color: #10b981; }
+        .btn-download-sm:hover { background-color: #059669; }
+        .btn-open-sm { background-color: #3b82f6; }
+        .btn-open-sm:hover { background-color: #2563eb; }
     </style>
 </head>
 
@@ -55,15 +83,18 @@
             'الدرس ١٦ - من تراث الإمام المهدي في الغيبة الصغرى (١)'
         ],
         
-        // دالة تقوم بتوليد مسار العارض مدمجاً معه مسار الدرس
+        // دالة مسار التحميل المباشر (للأزرار)
+        getPdfPath(index) {
+            let num = index + 1;
+            let formattedNum = num < 10 ? '0' + num : num;
+            return `../pdf/${formattedNum}.pdf`;
+        },
+
+        // دالة مسار العارض الاحترافي (للـ iframe)
         getViewerUrl(index) {
             let num = index + 1;
             let formattedNum = num < 10 ? '0' + num : num;
-            
-            // مسار ملف الدرس
             let pdfFile = `../../pdf/${formattedNum}.pdf`;
-            
-            // استدعاء واجهة PDF.js الجاهزة وتمرير الملف إليها
             return `../pdfjs/web/viewer.html?file=${encodeURIComponent(pdfFile)}`;
         }
     }">
@@ -81,7 +112,20 @@
                     <div x-show="activeLesson === (index + 1)" x-transition class="accordion-panel mt-4">
                         
                         <template x-if="activeLesson === (index + 1)">
-                            <iframe :src="getViewerUrl(index)" class="pdf-frame-pro" allowfullscreen></iframe>
+                            <div class="pdf-wrapper">
+                                <div class="fallback-tools">
+                                     <a :href="getPdfPath(index)" target="_blank" class="fallback-btn btn-open-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        فتح في صفحة جديدة
+                                     </a>
+                                     <a :href="getPdfPath(index)" download class="fallback-btn btn-download-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                        حفظ الملف
+                                     </a>
+                                </div>
+
+                                <iframe :src="getViewerUrl(index)" class="pdf-frame-pro" allowfullscreen></iframe>
+                            </div>
                         </template>
 
                     </div>
